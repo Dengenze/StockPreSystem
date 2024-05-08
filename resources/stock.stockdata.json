@@ -1,0 +1,1760 @@
+[{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e65"
+  },
+  "id": 0,
+  "symbol": 1,
+  "trade_date": 20240412,
+  "open": 27.88,
+  "high": 27.99,
+  "low": 27.27,
+  "close": 27.4,
+  "pre_close": 27.88,
+  "change": -0.48,
+  "pct_chg": -1.7217,
+  "vol": 78387.28,
+  "amount": 215795.194
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e66"
+  },
+  "id": 1,
+  "symbol": 1,
+  "trade_date": 20240411,
+  "open": 27.72,
+  "high": 28.18,
+  "low": 27.25,
+  "close": 27.88,
+  "pre_close": 27.78,
+  "change": 0.1,
+  "pct_chg": 0.36,
+  "vol": 124472.25,
+  "amount": 346429.428
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e67"
+  },
+  "id": 2,
+  "symbol": 1,
+  "trade_date": 20240410,
+  "open": 29.35,
+  "high": 29.45,
+  "low": 27.35,
+  "close": 27.78,
+  "pre_close": 29.33,
+  "change": -1.55,
+  "pct_chg": -5.2847,
+  "vol": 245527.26,
+  "amount": 684839.556
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e68"
+  },
+  "id": 3,
+  "symbol": 1,
+  "trade_date": 20240409,
+  "open": 28.79,
+  "high": 29.59,
+  "low": 28.79,
+  "close": 29.33,
+  "pre_close": 28.51,
+  "change": 0.82,
+  "pct_chg": 2.8762,
+  "vol": 111351.07,
+  "amount": 324921.076
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e69"
+  },
+  "id": 4,
+  "symbol": 1,
+  "trade_date": 20240408,
+  "open": 29.5,
+  "high": 29.69,
+  "low": 28.5,
+  "close": 28.51,
+  "pre_close": 29.27,
+  "change": -0.76,
+  "pct_chg": -2.5965,
+  "vol": 83060.32,
+  "amount": 238976.106
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e6a"
+  },
+  "id": 5,
+  "symbol": 1,
+  "trade_date": 20240403,
+  "open": 29.45,
+  "high": 29.85,
+  "low": 29.01,
+  "close": 29.27,
+  "pre_close": 29.89,
+  "change": -0.62,
+  "pct_chg": -2.0743,
+  "vol": 112500.96,
+  "amount": 330050.881
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e6b"
+  },
+  "id": 6,
+  "symbol": 1,
+  "trade_date": 20240402,
+  "open": 29.72,
+  "high": 30.23,
+  "low": 29,
+  "close": 29.89,
+  "pre_close": 29.99,
+  "change": -0.1,
+  "pct_chg": -0.3334,
+  "vol": 167045.44,
+  "amount": 496676.785
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e6c"
+  },
+  "id": 7,
+  "symbol": 1,
+  "trade_date": 20240401,
+  "open": 29,
+  "high": 31,
+  "low": 29,
+  "close": 29.99,
+  "pre_close": 28.49,
+  "change": 1.5,
+  "pct_chg": 5.265,
+  "vol": 269665.34,
+  "amount": 812631.567
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e6d"
+  },
+  "id": 8,
+  "symbol": 1,
+  "trade_date": 20240329,
+  "open": 28.8,
+  "high": 29,
+  "low": 27.78,
+  "close": 28.49,
+  "pre_close": 28.83,
+  "change": -0.34,
+  "pct_chg": -1.1793,
+  "vol": 127742.04,
+  "amount": 363662.638
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e6e"
+  },
+  "id": 9,
+  "symbol": 1,
+  "trade_date": 20240328,
+  "open": 28.97,
+  "high": 30.02,
+  "low": 28.31,
+  "close": 28.83,
+  "pre_close": 29.13,
+  "change": -0.3,
+  "pct_chg": -1.0299,
+  "vol": 210769.3,
+  "amount": 612524.118
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e6f"
+  },
+  "id": 10,
+  "symbol": 1,
+  "trade_date": 20240327,
+  "open": 28.81,
+  "high": 29.88,
+  "low": 28.81,
+  "close": 29.13,
+  "pre_close": 28.73,
+  "change": 0.4,
+  "pct_chg": 1.3923,
+  "vol": 246861.57,
+  "amount": 726675.368
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e70"
+  },
+  "id": 11,
+  "symbol": 1,
+  "trade_date": 20240326,
+  "open": 28.11,
+  "high": 29.01,
+  "low": 27.97,
+  "close": 28.73,
+  "pre_close": 28.3,
+  "change": 0.43,
+  "pct_chg": 1.5194,
+  "vol": 130630.56,
+  "amount": 371515.319
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e71"
+  },
+  "id": 12,
+  "symbol": 1,
+  "trade_date": 20240325,
+  "open": 27.87,
+  "high": 29.3,
+  "low": 27.62,
+  "close": 28.3,
+  "pre_close": 28.01,
+  "change": 0.29,
+  "pct_chg": 1.0353,
+  "vol": 176228.84,
+  "amount": 505230.032
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e72"
+  },
+  "id": 13,
+  "symbol": 1,
+  "trade_date": 20240322,
+  "open": 28.29,
+  "high": 28.72,
+  "low": 27.77,
+  "close": 28.01,
+  "pre_close": 28.29,
+  "change": -0.28,
+  "pct_chg": -0.9897,
+  "vol": 94147.56,
+  "amount": 264613.796
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e73"
+  },
+  "id": 14,
+  "symbol": 1,
+  "trade_date": 20240321,
+  "open": 28.9,
+  "high": 28.98,
+  "low": 28.09,
+  "close": 28.29,
+  "pre_close": 28.91,
+  "change": -0.62,
+  "pct_chg": -2.1446,
+  "vol": 94476.77,
+  "amount": 268236.317
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e74"
+  },
+  "id": 15,
+  "symbol": 1,
+  "trade_date": 20240320,
+  "open": 28.95,
+  "high": 29.58,
+  "low": 28.67,
+  "close": 28.91,
+  "pre_close": 29.11,
+  "change": -0.2,
+  "pct_chg": -0.687,
+  "vol": 134324.93,
+  "amount": 390656.377
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e75"
+  },
+  "id": 16,
+  "symbol": 1,
+  "trade_date": 20240319,
+  "open": 29.24,
+  "high": 30.11,
+  "low": 28.85,
+  "close": 29.11,
+  "pre_close": 28.34,
+  "change": 0.77,
+  "pct_chg": 2.717,
+  "vol": 296683.46,
+  "amount": 874003.577
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e76"
+  },
+  "id": 17,
+  "symbol": 1,
+  "trade_date": 20240318,
+  "open": 27.3,
+  "high": 28.57,
+  "low": 27.09,
+  "close": 28.34,
+  "pre_close": 27.29,
+  "change": 1.05,
+  "pct_chg": 3.8476,
+  "vol": 187337.44,
+  "amount": 526488.644
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e77"
+  },
+  "id": 18,
+  "symbol": 1,
+  "trade_date": 20240315,
+  "open": 27.55,
+  "high": 27.83,
+  "low": 26.6,
+  "close": 27.29,
+  "pre_close": 27.98,
+  "change": -0.69,
+  "pct_chg": -2.466,
+  "vol": 198314.56,
+  "amount": 538838.469
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e78"
+  },
+  "id": 19,
+  "symbol": 1,
+  "trade_date": 20240314,
+  "open": 27.86,
+  "high": 28.43,
+  "low": 27.5,
+  "close": 27.98,
+  "pre_close": 28.03,
+  "change": -0.05,
+  "pct_chg": -0.1784,
+  "vol": 145600.79,
+  "amount": 406295.531
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e79"
+  },
+  "id": 20,
+  "symbol": 1,
+  "trade_date": 20240313,
+  "open": 27.8,
+  "high": 28.8,
+  "low": 27.68,
+  "close": 28.03,
+  "pre_close": 28.3,
+  "change": -0.27,
+  "pct_chg": -0.9541,
+  "vol": 165109.88,
+  "amount": 465669.394
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e7a"
+  },
+  "id": 21,
+  "symbol": 1,
+  "trade_date": 20240312,
+  "open": 28.84,
+  "high": 30.07,
+  "low": 28.13,
+  "close": 28.3,
+  "pre_close": 28.82,
+  "change": -0.52,
+  "pct_chg": -1.8043,
+  "vol": 340080.09,
+  "amount": 982589.095
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e7b"
+  },
+  "id": 22,
+  "symbol": 1,
+  "trade_date": 20240311,
+  "open": 28.07,
+  "high": 29.4,
+  "low": 27.74,
+  "close": 28.82,
+  "pre_close": 26.73,
+  "change": 2.09,
+  "pct_chg": 7.8189,
+  "vol": 445601.29,
+  "amount": 1271035.235
+},
+{
+  "_id": {
+    "$oid": "661fe4985e8cf40563bb2e7c"
+  },
+  "id": 23,
+  "symbol": 1,
+  "trade_date": 20240308,
+  "open": 25.27,
+  "high": 26.73,
+  "low": 25.22,
+  "close": 26.73,
+  "pre_close": 24.3,
+  "change": 2.43,
+  "pct_chg": 10,
+  "vol": 222748.29,
+  "amount": 586774.631
+},
+{
+  "_id": {
+    "$oid": "6620e28be22c57894462a1ca"
+  },
+  "symbol": 2,
+  "trade_date": 20240319,
+  "open": 29.24,
+  "high": 30.11,
+  "low": 28.85,
+  "close": 29.11,
+  "pre_close": 28.34,
+  "change": 0.77,
+  "pct_chg": 2.717,
+  "vol": 296683.46,
+  "amount": 874003.577
+},
+{
+  "_id": {
+    "$oid": "6620e28be22c57894462a1cb"
+  },
+  "symbol": 2,
+  "trade_date": 20240318,
+  "open": 27.3,
+  "high": 28.57,
+  "low": 27.09,
+  "close": 28.34,
+  "pre_close": 27.29,
+  "change": 1.05,
+  "pct_chg": 3.8476,
+  "vol": 187337.44,
+  "amount": 526488.644
+},
+{
+  "_id": {
+    "$oid": "6620e28be22c57894462a1cc"
+  },
+  "symbol": 2,
+  "trade_date": 20240315,
+  "open": 27.55,
+  "high": 27.83,
+  "low": 26.6,
+  "close": 27.29,
+  "pre_close": 27.98,
+  "change": -0.69,
+  "pct_chg": -2.466,
+  "vol": 198314.56,
+  "amount": 538838.469
+},
+{
+  "_id": {
+    "$oid": "6620e28be22c57894462a1cd"
+  },
+  "symbol": 2,
+  "trade_date": 20240314,
+  "open": 27.86,
+  "high": 28.43,
+  "low": 27.5,
+  "close": 27.98,
+  "pre_close": 28.03,
+  "change": -0.05,
+  "pct_chg": -0.1784,
+  "vol": 145600.79,
+  "amount": 406295.531
+},
+{
+  "_id": {
+    "$oid": "6620e28be22c57894462a1ce"
+  },
+  "symbol": 2,
+  "trade_date": 20240313,
+  "open": 27.8,
+  "high": 28.8,
+  "low": 27.68,
+  "close": 28.03,
+  "pre_close": 28.3,
+  "change": -0.27,
+  "pct_chg": -0.9541,
+  "vol": 165109.88,
+  "amount": 465669.394
+},
+{
+  "_id": {
+    "$oid": "6620e28be22c57894462a1cf"
+  },
+  "symbol": 2,
+  "trade_date": 20240312,
+  "open": 28.84,
+  "high": 30.07,
+  "low": 28.13,
+  "close": 28.3,
+  "pre_close": 28.82,
+  "change": -0.52,
+  "pct_chg": -1.8043,
+  "vol": 340080.09,
+  "amount": 982589.095
+},
+{
+  "_id": {
+    "$oid": "6620e28be22c57894462a1d0"
+  },
+  "symbol": 2,
+  "trade_date": 20240311,
+  "open": 28.07,
+  "high": 29.4,
+  "low": 27.74,
+  "close": 28.82,
+  "pre_close": 26.73,
+  "change": 2.09,
+  "pct_chg": 7.8189,
+  "vol": 445601.29,
+  "amount": 1271035.235
+},
+{
+  "_id": {
+    "$oid": "6620e28be22c57894462a1d1"
+  },
+  "symbol": 2,
+  "trade_date": 20240308,
+  "open": 25.27,
+  "high": 26.73,
+  "low": 25.22,
+  "close": 26.73,
+  "pre_close": 24.3,
+  "change": 2.43,
+  "pct_chg": 10,
+  "vol": 222748.29,
+  "amount": 586774.631
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1d2"
+  },
+  "id": 24,
+  "symbol": 2,
+  "trade_date": 20240412,
+  "open": 27.88,
+  "high": 27.99,
+  "low": 27.27,
+  "close": 27.4,
+  "pre_close": 27.88,
+  "change": -0.48,
+  "pct_chg": -1.7217,
+  "vol": 78387.28,
+  "amount": 215795.194
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1d3"
+  },
+  "id": 25,
+  "symbol": 2,
+  "trade_date": 20240411,
+  "open": 27.72,
+  "high": 28.18,
+  "low": 27.25,
+  "close": 27.88,
+  "pre_close": 27.78,
+  "change": 0.1,
+  "pct_chg": 0.36,
+  "vol": 124472.25,
+  "amount": 346429.428
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1d4"
+  },
+  "id": 26,
+  "symbol": 2,
+  "trade_date": 20240410,
+  "open": 29.35,
+  "high": 29.45,
+  "low": 27.35,
+  "close": 27.78,
+  "pre_close": 29.33,
+  "change": -1.55,
+  "pct_chg": -5.2847,
+  "vol": 245527.26,
+  "amount": 684839.556
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1d5"
+  },
+  "id": 27,
+  "symbol": 2,
+  "trade_date": 20240409,
+  "open": 28.79,
+  "high": 29.59,
+  "low": 28.79,
+  "close": 29.33,
+  "pre_close": 28.51,
+  "change": 0.82,
+  "pct_chg": 2.8762,
+  "vol": 111351.07,
+  "amount": 324921.076
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1d6"
+  },
+  "id": 28,
+  "symbol": 2,
+  "trade_date": 20240408,
+  "open": 29.5,
+  "high": 29.69,
+  "low": 28.5,
+  "close": 28.51,
+  "pre_close": 29.27,
+  "change": -0.76,
+  "pct_chg": -2.5965,
+  "vol": 83060.32,
+  "amount": 238976.106
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1d7"
+  },
+  "id": 29,
+  "symbol": 2,
+  "trade_date": 20240403,
+  "open": 29.45,
+  "high": 29.85,
+  "low": 29.01,
+  "close": 29.27,
+  "pre_close": 29.89,
+  "change": -0.62,
+  "pct_chg": -2.0743,
+  "vol": 112500.96,
+  "amount": 330050.881
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1d8"
+  },
+  "id": 30,
+  "symbol": 2,
+  "trade_date": 20240402,
+  "open": 29.72,
+  "high": 30.23,
+  "low": 29,
+  "close": 29.89,
+  "pre_close": 29.99,
+  "change": -0.1,
+  "pct_chg": -0.3334,
+  "vol": 167045.44,
+  "amount": 496676.785
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1d9"
+  },
+  "id": 31,
+  "symbol": 2,
+  "trade_date": 20240401,
+  "open": 29,
+  "high": 31,
+  "low": 29,
+  "close": 29.99,
+  "pre_close": 28.49,
+  "change": 1.5,
+  "pct_chg": 5.265,
+  "vol": 269665.34,
+  "amount": 812631.567
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1da"
+  },
+  "id": 32,
+  "symbol": 2,
+  "trade_date": 20240329,
+  "open": 28.8,
+  "high": 29,
+  "low": 27.78,
+  "close": 28.49,
+  "pre_close": 28.83,
+  "change": -0.34,
+  "pct_chg": -1.1793,
+  "vol": 127742.04,
+  "amount": 363662.638
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1db"
+  },
+  "id": 33,
+  "symbol": 2,
+  "trade_date": 20240328,
+  "open": 28.97,
+  "high": 30.02,
+  "low": 28.31,
+  "close": 28.83,
+  "pre_close": 29.13,
+  "change": -0.3,
+  "pct_chg": -1.0299,
+  "vol": 210769.3,
+  "amount": 612524.118
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1dc"
+  },
+  "id": 34,
+  "symbol": 2,
+  "trade_date": 20240327,
+  "open": 28.81,
+  "high": 29.88,
+  "low": 28.81,
+  "close": 29.13,
+  "pre_close": 28.73,
+  "change": 0.4,
+  "pct_chg": 1.3923,
+  "vol": 246861.57,
+  "amount": 726675.368
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1dd"
+  },
+  "id": 35,
+  "symbol": 2,
+  "trade_date": 20240326,
+  "open": 28.11,
+  "high": 29.01,
+  "low": 27.97,
+  "close": 28.73,
+  "pre_close": 28.3,
+  "change": 0.43,
+  "pct_chg": 1.5194,
+  "vol": 130630.56,
+  "amount": 371515.319
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1de"
+  },
+  "id": 36,
+  "symbol": 2,
+  "trade_date": 20240325,
+  "open": 27.87,
+  "high": 29.3,
+  "low": 27.62,
+  "close": 28.3,
+  "pre_close": 28.01,
+  "change": 0.29,
+  "pct_chg": 1.0353,
+  "vol": 176228.84,
+  "amount": 505230.032
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1df"
+  },
+  "id": 37,
+  "symbol": 2,
+  "trade_date": 20240322,
+  "open": 28.29,
+  "high": 28.72,
+  "low": 27.77,
+  "close": 28.01,
+  "pre_close": 28.29,
+  "change": -0.28,
+  "pct_chg": -0.9897,
+  "vol": 94147.56,
+  "amount": 264613.796
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1e0"
+  },
+  "id": 38,
+  "symbol": 2,
+  "trade_date": 20240321,
+  "open": 28.9,
+  "high": 28.98,
+  "low": 28.09,
+  "close": 28.29,
+  "pre_close": 28.91,
+  "change": -0.62,
+  "pct_chg": -2.1446,
+  "vol": 94476.77,
+  "amount": 268236.317
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1e1"
+  },
+  "id": 39,
+  "symbol": 2,
+  "trade_date": 20240320,
+  "open": 28.95,
+  "high": 29.58,
+  "low": 28.67,
+  "close": 28.91,
+  "pre_close": 29.11,
+  "change": -0.2,
+  "pct_chg": -0.687,
+  "vol": 134324.93,
+  "amount": 390656.377
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1e2"
+  },
+  "id": 40,
+  "symbol": 2,
+  "trade_date": 20240319,
+  "open": 29.24,
+  "high": 30.11,
+  "low": 28.85,
+  "close": 29.11,
+  "pre_close": 28.34,
+  "change": 0.77,
+  "pct_chg": 2.717,
+  "vol": 296683.46,
+  "amount": 874003.577
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1e3"
+  },
+  "id": 41,
+  "symbol": 2,
+  "trade_date": 20240318,
+  "open": 27.3,
+  "high": 28.57,
+  "low": 27.09,
+  "close": 28.34,
+  "pre_close": 27.29,
+  "change": 1.05,
+  "pct_chg": 3.8476,
+  "vol": 187337.44,
+  "amount": 526488.644
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1e4"
+  },
+  "id": 42,
+  "symbol": 2,
+  "trade_date": 20240315,
+  "open": 27.55,
+  "high": 27.83,
+  "low": 26.6,
+  "close": 27.29,
+  "pre_close": 27.98,
+  "change": -0.69,
+  "pct_chg": -2.466,
+  "vol": 198314.56,
+  "amount": 538838.469
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1e5"
+  },
+  "id": 43,
+  "symbol": 2,
+  "trade_date": 20240314,
+  "open": 27.86,
+  "high": 28.43,
+  "low": 27.5,
+  "close": 27.98,
+  "pre_close": 28.03,
+  "change": -0.05,
+  "pct_chg": -0.1784,
+  "vol": 145600.79,
+  "amount": 406295.531
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1e6"
+  },
+  "id": 44,
+  "symbol": 2,
+  "trade_date": 20240313,
+  "open": 27.8,
+  "high": 28.8,
+  "low": 27.68,
+  "close": 28.03,
+  "pre_close": 28.3,
+  "change": -0.27,
+  "pct_chg": -0.9541,
+  "vol": 165109.88,
+  "amount": 465669.394
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1e7"
+  },
+  "id": 45,
+  "symbol": 2,
+  "trade_date": 20240312,
+  "open": 28.84,
+  "high": 30.07,
+  "low": 28.13,
+  "close": 28.3,
+  "pre_close": 28.82,
+  "change": -0.52,
+  "pct_chg": -1.8043,
+  "vol": 340080.09,
+  "amount": 982589.095
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1e8"
+  },
+  "id": 46,
+  "symbol": 2,
+  "trade_date": 20240311,
+  "open": 28.07,
+  "high": 29.4,
+  "low": 27.74,
+  "close": 28.82,
+  "pre_close": 26.73,
+  "change": 2.09,
+  "pct_chg": 7.8189,
+  "vol": 445601.29,
+  "amount": 1271035.235
+},
+{
+  "_id": {
+    "$oid": "6620e34ae22c57894462a1e9"
+  },
+  "id": 47,
+  "symbol": 2,
+  "trade_date": 20240308,
+  "open": 25.27,
+  "high": 26.73,
+  "low": 25.22,
+  "close": 26.73,
+  "pre_close": 24.3,
+  "change": 2.43,
+  "pct_chg": 10,
+  "vol": 222748.29,
+  "amount": 586774.631
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1ea"
+  },
+  "id": 48,
+  "symbol": 3,
+  "trade_date": 20240412,
+  "open": 27.88,
+  "high": 27.99,
+  "low": 27.27,
+  "close": 27.4,
+  "pre_close": 27.88,
+  "change": -0.48,
+  "pct_chg": -1.7217,
+  "vol": 78387.28,
+  "amount": 215795.194
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1eb"
+  },
+  "id": 49,
+  "symbol": 3,
+  "trade_date": 20240411,
+  "open": 27.72,
+  "high": 28.18,
+  "low": 27.25,
+  "close": 27.88,
+  "pre_close": 27.78,
+  "change": 0.1,
+  "pct_chg": 0.36,
+  "vol": 124472.25,
+  "amount": 346429.428
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1ec"
+  },
+  "id": 50,
+  "symbol": 3,
+  "trade_date": 20240410,
+  "open": 29.35,
+  "high": 29.45,
+  "low": 27.35,
+  "close": 27.78,
+  "pre_close": 29.33,
+  "change": -1.55,
+  "pct_chg": -5.2847,
+  "vol": 245527.26,
+  "amount": 684839.556
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1ed"
+  },
+  "id": 51,
+  "symbol": 3,
+  "trade_date": 20240409,
+  "open": 28.79,
+  "high": 29.59,
+  "low": 28.79,
+  "close": 29.33,
+  "pre_close": 28.51,
+  "change": 0.82,
+  "pct_chg": 2.8762,
+  "vol": 111351.07,
+  "amount": 324921.076
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1ee"
+  },
+  "id": 52,
+  "symbol": 3,
+  "trade_date": 20240408,
+  "open": 29.5,
+  "high": 29.69,
+  "low": 28.5,
+  "close": 28.51,
+  "pre_close": 29.27,
+  "change": -0.76,
+  "pct_chg": -2.5965,
+  "vol": 83060.32,
+  "amount": 238976.106
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1ef"
+  },
+  "id": 53,
+  "symbol": 3,
+  "trade_date": 20240403,
+  "open": 29.45,
+  "high": 29.85,
+  "low": 29.01,
+  "close": 29.27,
+  "pre_close": 29.89,
+  "change": -0.62,
+  "pct_chg": -2.0743,
+  "vol": 112500.96,
+  "amount": 330050.881
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1f0"
+  },
+  "id": 54,
+  "symbol": 3,
+  "trade_date": 20240402,
+  "open": 29.72,
+  "high": 30.23,
+  "low": 29,
+  "close": 29.89,
+  "pre_close": 29.99,
+  "change": -0.1,
+  "pct_chg": -0.3334,
+  "vol": 167045.44,
+  "amount": 496676.785
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1f1"
+  },
+  "id": 55,
+  "symbol": 3,
+  "trade_date": 20240401,
+  "open": 29,
+  "high": 31,
+  "low": 29,
+  "close": 29.99,
+  "pre_close": 28.49,
+  "change": 1.5,
+  "pct_chg": 5.265,
+  "vol": 269665.34,
+  "amount": 812631.567
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1f2"
+  },
+  "id": 56,
+  "symbol": 3,
+  "trade_date": 20240329,
+  "open": 28.8,
+  "high": 29,
+  "low": 27.78,
+  "close": 28.49,
+  "pre_close": 28.83,
+  "change": -0.34,
+  "pct_chg": -1.1793,
+  "vol": 127742.04,
+  "amount": 363662.638
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1f3"
+  },
+  "id": 57,
+  "symbol": 3,
+  "trade_date": 20240328,
+  "open": 28.97,
+  "high": 30.02,
+  "low": 28.31,
+  "close": 28.83,
+  "pre_close": 29.13,
+  "change": -0.3,
+  "pct_chg": -1.0299,
+  "vol": 210769.3,
+  "amount": 612524.118
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1f4"
+  },
+  "id": 58,
+  "symbol": 3,
+  "trade_date": 20240327,
+  "open": 28.81,
+  "high": 29.88,
+  "low": 28.81,
+  "close": 29.13,
+  "pre_close": 28.73,
+  "change": 0.4,
+  "pct_chg": 1.3923,
+  "vol": 246861.57,
+  "amount": 726675.368
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1f5"
+  },
+  "id": 59,
+  "symbol": 3,
+  "trade_date": 20240326,
+  "open": 28.11,
+  "high": 29.01,
+  "low": 27.97,
+  "close": 28.73,
+  "pre_close": 28.3,
+  "change": 0.43,
+  "pct_chg": 1.5194,
+  "vol": 130630.56,
+  "amount": 371515.319
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1f6"
+  },
+  "id": 60,
+  "symbol": 3,
+  "trade_date": 20240325,
+  "open": 27.87,
+  "high": 29.3,
+  "low": 27.62,
+  "close": 28.3,
+  "pre_close": 28.01,
+  "change": 0.29,
+  "pct_chg": 1.0353,
+  "vol": 176228.84,
+  "amount": 505230.032
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1f7"
+  },
+  "id": 61,
+  "symbol": 3,
+  "trade_date": 20240322,
+  "open": 28.29,
+  "high": 28.72,
+  "low": 27.77,
+  "close": 28.01,
+  "pre_close": 28.29,
+  "change": -0.28,
+  "pct_chg": -0.9897,
+  "vol": 94147.56,
+  "amount": 264613.796
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1f8"
+  },
+  "id": 62,
+  "symbol": 3,
+  "trade_date": 20240321,
+  "open": 28.9,
+  "high": 28.98,
+  "low": 28.09,
+  "close": 28.29,
+  "pre_close": 28.91,
+  "change": -0.62,
+  "pct_chg": -2.1446,
+  "vol": 94476.77,
+  "amount": 268236.317
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1f9"
+  },
+  "id": 63,
+  "symbol": 3,
+  "trade_date": 20240320,
+  "open": 28.95,
+  "high": 29.58,
+  "low": 28.67,
+  "close": 28.91,
+  "pre_close": 29.11,
+  "change": -0.2,
+  "pct_chg": -0.687,
+  "vol": 134324.93,
+  "amount": 390656.377
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1fa"
+  },
+  "id": 64,
+  "symbol": 3,
+  "trade_date": 20240319,
+  "open": 29.24,
+  "high": 30.11,
+  "low": 28.85,
+  "close": 29.11,
+  "pre_close": 28.34,
+  "change": 0.77,
+  "pct_chg": 2.717,
+  "vol": 296683.46,
+  "amount": 874003.577
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1fb"
+  },
+  "id": 65,
+  "symbol": 3,
+  "trade_date": 20240318,
+  "open": 27.3,
+  "high": 28.57,
+  "low": 27.09,
+  "close": 28.34,
+  "pre_close": 27.29,
+  "change": 1.05,
+  "pct_chg": 3.8476,
+  "vol": 187337.44,
+  "amount": 526488.644
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1fc"
+  },
+  "id": 66,
+  "symbol": 3,
+  "trade_date": 20240315,
+  "open": 27.55,
+  "high": 27.83,
+  "low": 26.6,
+  "close": 27.29,
+  "pre_close": 27.98,
+  "change": -0.69,
+  "pct_chg": -2.466,
+  "vol": 198314.56,
+  "amount": 538838.469
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1fd"
+  },
+  "id": 67,
+  "symbol": 3,
+  "trade_date": 20240314,
+  "open": 27.86,
+  "high": 28.43,
+  "low": 27.5,
+  "close": 27.98,
+  "pre_close": 28.03,
+  "change": -0.05,
+  "pct_chg": -0.1784,
+  "vol": 145600.79,
+  "amount": 406295.531
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1fe"
+  },
+  "id": 68,
+  "symbol": 3,
+  "trade_date": 20240313,
+  "open": 27.8,
+  "high": 28.8,
+  "low": 27.68,
+  "close": 28.03,
+  "pre_close": 28.3,
+  "change": -0.27,
+  "pct_chg": -0.9541,
+  "vol": 165109.88,
+  "amount": 465669.394
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a1ff"
+  },
+  "id": 69,
+  "symbol": 3,
+  "trade_date": 20240312,
+  "open": 28.84,
+  "high": 30.07,
+  "low": 28.13,
+  "close": 28.3,
+  "pre_close": 28.82,
+  "change": -0.52,
+  "pct_chg": -1.8043,
+  "vol": 340080.09,
+  "amount": 982589.095
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a200"
+  },
+  "id": 70,
+  "symbol": 3,
+  "trade_date": 20240311,
+  "open": 28.07,
+  "high": 29.4,
+  "low": 27.74,
+  "close": 28.82,
+  "pre_close": 26.73,
+  "change": 2.09,
+  "pct_chg": 7.8189,
+  "vol": 445601.29,
+  "amount": 1271035.235
+},
+{
+  "_id": {
+    "$oid": "6620e393e22c57894462a201"
+  },
+  "id": 71,
+  "symbol": 3,
+  "trade_date": 20240308,
+  "open": 25.27,
+  "high": 26.73,
+  "low": 25.22,
+  "close": 26.73,
+  "pre_close": 24.3,
+  "change": 2.43,
+  "pct_chg": 10,
+  "vol": 222748.29,
+  "amount": 586774.631
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a202"
+  },
+  "id": 72,
+  "symbol": 4,
+  "trade_date": 20240412,
+  "open": 27.88,
+  "high": 27.99,
+  "low": 27.27,
+  "close": 27.4,
+  "pre_close": 27.88,
+  "change": -0.48,
+  "pct_chg": -1.7217,
+  "vol": 78387.28,
+  "amount": 215795.194
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a203"
+  },
+  "id": 73,
+  "symbol": 4,
+  "trade_date": 20240411,
+  "open": 27.72,
+  "high": 28.18,
+  "low": 27.25,
+  "close": 27.88,
+  "pre_close": 27.78,
+  "change": 0.1,
+  "pct_chg": 0.36,
+  "vol": 124472.25,
+  "amount": 346429.428
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a204"
+  },
+  "id": 74,
+  "symbol": 4,
+  "trade_date": 20240410,
+  "open": 29.35,
+  "high": 29.45,
+  "low": 27.35,
+  "close": 27.78,
+  "pre_close": 29.33,
+  "change": -1.55,
+  "pct_chg": -5.2847,
+  "vol": 245527.26,
+  "amount": 684839.556
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a205"
+  },
+  "id": 75,
+  "symbol": 4,
+  "trade_date": 20240409,
+  "open": 28.79,
+  "high": 29.59,
+  "low": 28.79,
+  "close": 29.33,
+  "pre_close": 28.51,
+  "change": 0.82,
+  "pct_chg": 2.8762,
+  "vol": 111351.07,
+  "amount": 324921.076
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a206"
+  },
+  "id": 76,
+  "symbol": 4,
+  "trade_date": 20240408,
+  "open": 29.5,
+  "high": 29.69,
+  "low": 28.5,
+  "close": 28.51,
+  "pre_close": 29.27,
+  "change": -0.76,
+  "pct_chg": -2.5965,
+  "vol": 83060.32,
+  "amount": 238976.106
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a207"
+  },
+  "id": 77,
+  "symbol": 4,
+  "trade_date": 20240403,
+  "open": 29.45,
+  "high": 29.85,
+  "low": 29.01,
+  "close": 29.27,
+  "pre_close": 29.89,
+  "change": -0.62,
+  "pct_chg": -2.0743,
+  "vol": 112500.96,
+  "amount": 330050.881
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a208"
+  },
+  "id": 78,
+  "symbol": 4,
+  "trade_date": 20240402,
+  "open": 29.72,
+  "high": 30.23,
+  "low": 29,
+  "close": 29.89,
+  "pre_close": 29.99,
+  "change": -0.1,
+  "pct_chg": -0.3334,
+  "vol": 167045.44,
+  "amount": 496676.785
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a209"
+  },
+  "id": 79,
+  "symbol": 4,
+  "trade_date": 20240401,
+  "open": 29,
+  "high": 31,
+  "low": 29,
+  "close": 29.99,
+  "pre_close": 28.49,
+  "change": 1.5,
+  "pct_chg": 5.265,
+  "vol": 269665.34,
+  "amount": 812631.567
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a20a"
+  },
+  "id": 80,
+  "symbol": 4,
+  "trade_date": 20240329,
+  "open": 28.8,
+  "high": 29,
+  "low": 27.78,
+  "close": 28.49,
+  "pre_close": 28.83,
+  "change": -0.34,
+  "pct_chg": -1.1793,
+  "vol": 127742.04,
+  "amount": 363662.638
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a20b"
+  },
+  "id": 81,
+  "symbol": 4,
+  "trade_date": 20240328,
+  "open": 28.97,
+  "high": 30.02,
+  "low": 28.31,
+  "close": 28.83,
+  "pre_close": 29.13,
+  "change": -0.3,
+  "pct_chg": -1.0299,
+  "vol": 210769.3,
+  "amount": 612524.118
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a20c"
+  },
+  "id": 82,
+  "symbol": 4,
+  "trade_date": 20240327,
+  "open": 28.81,
+  "high": 29.88,
+  "low": 28.81,
+  "close": 29.13,
+  "pre_close": 28.73,
+  "change": 0.4,
+  "pct_chg": 1.3923,
+  "vol": 246861.57,
+  "amount": 726675.368
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a20d"
+  },
+  "id": 83,
+  "symbol": 4,
+  "trade_date": 20240326,
+  "open": 28.11,
+  "high": 29.01,
+  "low": 27.97,
+  "close": 28.73,
+  "pre_close": 28.3,
+  "change": 0.43,
+  "pct_chg": 1.5194,
+  "vol": 130630.56,
+  "amount": 371515.319
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a20e"
+  },
+  "id": 84,
+  "symbol": 4,
+  "trade_date": 20240325,
+  "open": 27.87,
+  "high": 29.3,
+  "low": 27.62,
+  "close": 28.3,
+  "pre_close": 28.01,
+  "change": 0.29,
+  "pct_chg": 1.0353,
+  "vol": 176228.84,
+  "amount": 505230.032
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a20f"
+  },
+  "id": 85,
+  "symbol": 4,
+  "trade_date": 20240322,
+  "open": 28.29,
+  "high": 28.72,
+  "low": 27.77,
+  "close": 28.01,
+  "pre_close": 28.29,
+  "change": -0.28,
+  "pct_chg": -0.9897,
+  "vol": 94147.56,
+  "amount": 264613.796
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a210"
+  },
+  "id": 86,
+  "symbol": 4,
+  "trade_date": 20240321,
+  "open": 28.9,
+  "high": 28.98,
+  "low": 28.09,
+  "close": 28.29,
+  "pre_close": 28.91,
+  "change": -0.62,
+  "pct_chg": -2.1446,
+  "vol": 94476.77,
+  "amount": 268236.317
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a211"
+  },
+  "id": 87,
+  "symbol": 4,
+  "trade_date": 20240320,
+  "open": 28.95,
+  "high": 29.58,
+  "low": 28.67,
+  "close": 28.91,
+  "pre_close": 29.11,
+  "change": -0.2,
+  "pct_chg": -0.687,
+  "vol": 134324.93,
+  "amount": 390656.377
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a212"
+  },
+  "id": 88,
+  "symbol": 4,
+  "trade_date": 20240319,
+  "open": 29.24,
+  "high": 30.11,
+  "low": 28.85,
+  "close": 29.11,
+  "pre_close": 28.34,
+  "change": 0.77,
+  "pct_chg": 2.717,
+  "vol": 296683.46,
+  "amount": 874003.577
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a213"
+  },
+  "id": 89,
+  "symbol": 4,
+  "trade_date": 20240318,
+  "open": 27.3,
+  "high": 28.57,
+  "low": 27.09,
+  "close": 28.34,
+  "pre_close": 27.29,
+  "change": 1.05,
+  "pct_chg": 3.8476,
+  "vol": 187337.44,
+  "amount": 526488.644
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a214"
+  },
+  "id": 90,
+  "symbol": 4,
+  "trade_date": 20240315,
+  "open": 27.55,
+  "high": 27.83,
+  "low": 26.6,
+  "close": 27.29,
+  "pre_close": 27.98,
+  "change": -0.69,
+  "pct_chg": -2.466,
+  "vol": 198314.56,
+  "amount": 538838.469
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a215"
+  },
+  "id": 91,
+  "symbol": 4,
+  "trade_date": 20240314,
+  "open": 27.86,
+  "high": 28.43,
+  "low": 27.5,
+  "close": 27.98,
+  "pre_close": 28.03,
+  "change": -0.05,
+  "pct_chg": -0.1784,
+  "vol": 145600.79,
+  "amount": 406295.531
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a216"
+  },
+  "id": 92,
+  "symbol": 4,
+  "trade_date": 20240313,
+  "open": 27.8,
+  "high": 28.8,
+  "low": 27.68,
+  "close": 28.03,
+  "pre_close": 28.3,
+  "change": -0.27,
+  "pct_chg": -0.9541,
+  "vol": 165109.88,
+  "amount": 465669.394
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a217"
+  },
+  "id": 93,
+  "symbol": 4,
+  "trade_date": 20240312,
+  "open": 28.84,
+  "high": 30.07,
+  "low": 28.13,
+  "close": 28.3,
+  "pre_close": 28.82,
+  "change": -0.52,
+  "pct_chg": -1.8043,
+  "vol": 340080.09,
+  "amount": 982589.095
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a218"
+  },
+  "id": 94,
+  "symbol": 4,
+  "trade_date": 20240311,
+  "open": 28.07,
+  "high": 29.4,
+  "low": 27.74,
+  "close": 28.82,
+  "pre_close": 26.73,
+  "change": 2.09,
+  "pct_chg": 7.8189,
+  "vol": 445601.29,
+  "amount": 1271035.235
+},
+{
+  "_id": {
+    "$oid": "6620e3b8e22c57894462a219"
+  },
+  "id": 95,
+  "symbol": 4,
+  "trade_date": 20240308,
+  "open": 25.27,
+  "high": 26.73,
+  "low": 25.22,
+  "close": 26.73,
+  "pre_close": 24.3,
+  "change": 2.43,
+  "pct_chg": 10,
+  "vol": 222748.29,
+  "amount": 586774.631
+}]
