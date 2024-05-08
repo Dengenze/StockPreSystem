@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class TestController {
+
+    @PostMapping("/user/log/FrountTest")
+    public CommonResponse<String> FrountTest(HttpServletRequest request,@RequestParam("requiredRole") String requiredRole)
+    {
+        return new CommonResponse<String>(200,"测试成功","随便丢点东西占位","随便丢点东西占位");
+    }
+
     @PostMapping("/user/log/testlog")
     public String testlog(@RequestParam("username") String username,@RequestParam("authority") String authority)
     {

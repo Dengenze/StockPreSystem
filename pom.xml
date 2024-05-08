@@ -30,6 +30,7 @@
         <spring-cloud.version>Hoxton.SR10</spring-cloud.version>
         <mysql.version>5.1.47</mysql.version>
         <mybatis.version>2.1.1</mybatis.version>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
     <dependencyManagement>

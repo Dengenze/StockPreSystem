@@ -8,11 +8,13 @@
     </parent>
     <groupId>cloud</groupId>
     <artifactId>gateway</artifactId>
+    <packaging>jar</packaging>
 
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
     <dependencies>
         <!--nacos服务注册发现依赖-->
@@ -37,6 +39,23 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>gateway</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.6.0</version>
+                <configuration>
+                    <mainClass>cloud.gateway.GatewayApplication</mainClass>
+                    <finalName>gateway</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 </project>
