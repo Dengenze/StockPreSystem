@@ -17,3 +17,11 @@ spring:
           uri: lb://StockData # 路由的目标地址,lb://+模块名字
           predicates: # 路由断言，判断请求是否符合规则
             - Path=/StockData/** # 整个模块内所有接口的URL格式（一个模块内的URL格式应该统一）
+
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST

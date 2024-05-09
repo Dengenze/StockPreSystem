@@ -17,6 +17,11 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+            <version>3.2.4</version>
+        </dependency>
         <!--nacos服务注册发现依赖-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
