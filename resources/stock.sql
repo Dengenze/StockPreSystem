@@ -180,17 +180,25 @@ INSERT INTO `user` VALUES (6, '6', 0, '男', '6', '2000-01-01 00:00:00', '6');
 DROP TABLE IF EXISTS `usertostock`;
 CREATE TABLE `usertostock`  (
   `collectionid` int NOT NULL AUTO_INCREMENT,
-  `collectionname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `userid` int NOT NULL,
-  `tscode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '获取数据的平台用的股票编码',
   `symbol` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '全国统一的股票编码',
   PRIMARY KEY (`collectionid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of usertostock
 -- ----------------------------
-INSERT INTO `usertostock` VALUES (1, 'payh', 4, '1', '000001');
-INSERT INTO `usertostock` VALUES (3, 'payh', 2, '1', '000001');
+INSERT INTO `usertostock` VALUES (1, '000001');
+INSERT INTO `usertostock` VALUES (3, '000001');
+
+DROP TABLE IF EXISTS `collection`;
+CREATE TABLE `collection`  (
+    `collectionid` int NOT NULL AUTO_INCREMENT,
+    `collectionname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '收藏夹名称',
+    `userid` int NULL DEFAULT NULL,
+    PRIMARY KEY (`collectionid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+INSERT INTO `collection` (`collectionid`, `collectionname`, `userid`) VALUES (1, '优质股1', 1);
+INSERT INTO `collection` (`collectionid`, `collectionname`, `userid`) VALUES (3, '我的股票1', 2);
 
 SET FOREIGN_KEY_CHECKS = 1;
