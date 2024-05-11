@@ -2,6 +2,7 @@ package cloud.user.Mapper;
 
 
 import Dto.Account;
+import Dto.Stock;
 import Dto.User;
 import org.apache.ibatis.annotations.*;
 
@@ -71,6 +72,11 @@ public interface UserMapper {
     //根据用户id查询用户角色
     @Select("select role from role where roleid = (select roleid from roletoaccount where userid = #{userId})")
     String selectRoleByUserId(Integer userId);
+    //修正用户的权限
+    @Update("UPDATE roletoaccount SET role = #{role} WHERE userId = #{userId}")
+    int changeRole(@Param("userId")int userId,@Param("role") String role);
 
-
+    //查询收藏夹里全部股票
+    @Select("Select * FROM usertostock join stock on usertostock.symbol= stock.symbol WHERE usertostock.collectionid = #{collectionid}")
+    List<Stock> selectStockFromCollection(@Param("collectionid") int collectionid);
 }

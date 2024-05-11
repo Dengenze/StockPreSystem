@@ -216,4 +216,25 @@ public class InfoController {
         //返回修改失败
         return new CommonResponse<String>(400,"修改失败",null,null);
     }
+    @PostMapping("user/RootChangeRole")
+    public CommonResponse<String> RootChangeRole(HttpServletRequest request,
+                                                 @RequestParam("userId")Integer userId,
+                                                 @RequestParam("role")String role)
+    {
+        //需要权限
+        if(!DengSequrity.DengSequrity(request,"Root"))
+        {
+            return new CommonResponse<String>(402,"权限不足",null,null);
+        }
+        //去数据库里修改用户表
+        if((userService.RootChangeRole(userId,role))!=0)
+        {
+            return new CommonResponse<String>(200,"修改成功",null,null);
+        }
+        else
+        {
+            //返回修改失败
+            return new CommonResponse<String>(400,"修改失败",null,null);
+        }
+    }
 }

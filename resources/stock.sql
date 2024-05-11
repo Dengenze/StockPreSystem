@@ -130,8 +130,8 @@ INSERT INTO `stock` VALUES ('000004', '4', '国华网安', '广东', '计算机 
 -- ----------------------------
 -- Table structure for stockdata(mongodb)
 -- ----------------------------
-DROP TABLE IF EXISTS `stockdata(mongodb)`;
-CREATE TABLE `stockdata(mongodb)`  (
+DROP TABLE IF EXISTS `stockdata`;
+CREATE TABLE `stockdata`  (
   `symbol` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `trade_date` datetime NULL DEFAULT NULL,
   `open` float NULL DEFAULT NULL,
@@ -179,9 +179,8 @@ INSERT INTO `user` VALUES (6, '6', 0, '男', '6', '2000-01-01 00:00:00', '6');
 -- ----------------------------
 DROP TABLE IF EXISTS `usertostock`;
 CREATE TABLE `usertostock`  (
-  `collectionid` int NOT NULL AUTO_INCREMENT,
-  `symbol` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '全国统一的股票编码',
-  PRIMARY KEY (`collectionid`) USING BTREE
+  `collectionid` int NOT NULL ,
+  `symbol` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '全国统一的股票编码'
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
