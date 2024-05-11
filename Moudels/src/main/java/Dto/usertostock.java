@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-public class UserToStock {
+public class usertostock {
     private int collectionid;
     private String symbol;
 }

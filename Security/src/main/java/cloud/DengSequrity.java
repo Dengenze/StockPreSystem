@@ -18,7 +18,7 @@ public class DengSequrity {
         authorityMap.put("Root", 4);
 
         // 从请求头获取token
-        String token = request.getHeader("authorization"); // 使用小写的"authorization"
+        String token = request.getHeader("Authorization");
 
         // 通过JwtTokenUtil工具类获取当前用户的权限
         String userRole = JwtTokenUtil.getUserRole(token);

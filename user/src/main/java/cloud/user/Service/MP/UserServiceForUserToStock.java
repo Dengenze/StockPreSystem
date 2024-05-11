@@ -1,8 +1,7 @@
 package cloud.user.Service.MP;
 
-import Dto.Stock;
-import Dto.UserToStock;
+import Dto.usertostock;
 import com.baomidou.mybatisplus.extension.service.IService;
 
-public interface UserServiceForUserToStock extends IService<UserToStock> {
+public interface UserServiceForUserToStock extends IService<usertostock> {
 }

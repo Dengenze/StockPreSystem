@@ -3,8 +3,7 @@ package cloud.user.Controller;
 import CommonResponse.CommonResponse;
 import Dto.Collection;
 import Dto.Stock;
-import Dto.UserRespVo;
-import Dto.UserToStock;
+import Dto.usertostock;
 import cloud.DengSequrity;
 import cloud.user.Service.MP.UserServiceForCollection;
 import cloud.user.Service.MP.UserServiceForUserToStock;
@@ -139,7 +138,7 @@ public class CollectionController {
         {
             return new CommonResponse<String>(400,"添加失败",null,null);
         }
-        UserToStock userToStock = new UserToStock();
+        usertostock userToStock = new usertostock();
         userToStock.setCollectionid(collectionid).setSymbol(symbol);
         boolean b = ServiceForUserToStock.save(userToStock);
         if(b)
@@ -165,7 +164,7 @@ public class CollectionController {
             return new CommonResponse<String>(402,"权限不足",null,null);
         }
 
-        boolean b = ServiceForUserToStock.lambdaUpdate().eq(UserToStock::getCollectionid, collectionid).remove();
+        boolean b = ServiceForUserToStock.lambdaUpdate().eq(usertostock::getCollectionid, collectionid).eq(usertostock::getSymbol,symbol).remove();
         if(b)
         {
             return new CommonResponse<String>(200,"删除成功",null,null);
