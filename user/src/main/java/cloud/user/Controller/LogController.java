@@ -159,7 +159,7 @@ public class LogController {
      *       如果验证码正确，则返回登录成功（200）
      */
     @PostMapping("/user/log/loginByCaptcha")
-    public CommonResponse<String> loginByCaptcha(@RequestParam("email") String email,
+    public CommonResponse<UserRespVo> loginByCaptcha(@RequestParam("email") String email,
                                                  @RequestParam("captcha") String captcha)
     {
         //不需要权限
@@ -167,7 +167,7 @@ public class LogController {
         //如果邮箱为空，登录失败
         if(email==null)
         {
-            return new CommonResponse<String>(400,"邮箱为空",null,null);
+            return new CommonResponse<UserRespVo>(400,"邮箱为空",null,null);
         }
 
         //获取Redis中的验证码
@@ -176,16 +176,22 @@ public class LogController {
         //如果验证码为空，登录失败
         if(code==null)
         {
-            return new CommonResponse<String>(400,"验证码已过期",null,null);
+            return new CommonResponse<UserRespVo>(400,"验证码已过期",null,null);
         }
 
         //如果验证码不匹配，登录失败
         if(!code.equals(captcha))
         {
-            return new CommonResponse<String>(400,"验证码错误",null,null);
+            return new CommonResponse<UserRespVo>(400,"验证码错误",null,null);
         }
 
-        return new CommonResponse<String>(200,"登录成功",null,null);
+        //用户存在，将用户信息封装到UserRespVo对象中
+        UserRespVo userRespVo = userService.selectUserAndAccountByEmail(email);
+
+        //生成token
+        String token = JwtTokenUtil.createToken(userRespVo.getAccount(), userService.selectRoleByUserId(userRespVo.getUserid()));
+
+        return new CommonResponse<UserRespVo>(200,"登录成功",userRespVo,token);
     }
 
 }
