@@ -32,7 +32,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         }
 
         HttpHeaders headers = request.getHeaders();
-        String token = headers.getFirst("authorization");//获取token
+        String token = headers.getFirst("Authorization");//获取token
         // 验证令牌
         Claims claims = JwtTokenUtil.checkJWT(token);
         if (claims == null) {

@@ -1,9 +1,11 @@
 package cloud.user.Service;
 
 import Dto.Account;
+import Dto.Stock;
 import Dto.User;
 import Dto.UserRespVo;
 import cloud.user.Mapper.UserMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -151,5 +153,14 @@ public class UserService {
     //根据用户id查询用户角色
     public String selectRoleByUserId(Integer userId) {
         return userMapper.selectRoleByUserId(userId);
+    }
+
+    //管理员修正用户权限
+    public int RootChangeRole(int userId,String role){return userMapper.changeRole(userId,role);}
+
+    //查找某收藏夹全部股票
+    public List<Stock> selectStockFromCollection(@Param("collectionid") int collectionid)
+    {
+        return userMapper.selectStockFromCollection(collectionid);
     }
 }
