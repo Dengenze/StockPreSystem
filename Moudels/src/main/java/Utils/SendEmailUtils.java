@@ -1,5 +1,6 @@
 package Utils;
 
+import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
 /**
@@ -11,7 +12,7 @@ public class SendEmailUtils {
      * @param email  接收邮箱
      * @param code   验证码
      */
-    public static void sendAuthCodeEmail(String email,String code) {
+    public static String sendAuthCodeEmail(String email,String code) {
         try {
             HtmlEmail mail = new HtmlEmail();
             //发送邮件的服务器 QQ为smtp.qq.com
@@ -30,9 +31,10 @@ public class SendEmailUtils {
             mail.setSubject("登录验证码");
             //设置邮件的内容
             mail.setMsg("尊敬的用户:你好! 验证码为:" + code + "(有效期为5分钟)");
-            mail.send();//发送
-        } catch (Exception e) {
+            return mail.send();//发送
+        } catch (EmailException e) {
             e.printStackTrace();
+            return "error";
         }
     }
 

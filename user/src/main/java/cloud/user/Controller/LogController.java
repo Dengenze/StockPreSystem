@@ -142,7 +142,9 @@ public class LogController {
         String code = String.valueOf(ValidateCodeUtils.generateValidateCode(8));
 
         //发送验证码
-        SendEmailUtils.sendAuthCodeEmail(email, code);
+        String result = SendEmailUtils.sendAuthCodeEmail(email, code);
+
+        if (result.equals("error")) return new CommonResponse<String>(400,"验证码发送失败",null,null);
 
         //将验证码存入Redis中(有效期5分钟)
         stringRedisTemplate.opsForValue().set(email, code, 5, TimeUnit.MINUTES);

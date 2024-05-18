@@ -8,4 +8,8 @@ import java.util.List;
 
 public interface StockService extends IService<Stock> {
     List<StockData> getStockBySymbol(String symbol);
+
+    int deleteAllStock();
+
+    int insertStock(String tscode, String symbol, String name, String area, String industry, String listdate);
 }
