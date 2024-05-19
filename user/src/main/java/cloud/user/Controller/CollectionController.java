@@ -41,6 +41,10 @@ public class CollectionController {
         {
             return new CommonResponse<String>(402,"权限不足",null,null);
         }
+        if((ServiceForCollection.lambdaQuery().eq(Collection::getCollectionname,collectionname).list())!=null)
+        {
+            return new CommonResponse<String>(400,"收藏夹名称重复",null,null);
+        }
         Collection collection = new Collection();
         collection.setUserid(userid).setCollectionname(collectionname);
         boolean b = ServiceForCollection.saveOrUpdate(collection);
@@ -67,12 +71,12 @@ public class CollectionController {
         }
         if(collectionname!=null)
         {
-            List<Collection> list = ServiceForCollection.lambdaQuery().like(Collection::getCollectionname, collectionname).list();
+            List<Collection> list = ServiceForCollection.lambdaQuery().like(Collection::getCollectionname, collectionname).eq(Collection::getUserid,userid).list();
             return new CommonResponse<>(200,"查询成功",list,null);
         }
         else
         {
-            List<Collection> list = ServiceForCollection.lambdaQuery().list();
+            List<Collection> list = ServiceForCollection.lambdaQuery().eq(Collection::getUserid,userid).list();
             return new CommonResponse<>(200,"查询成功",list,null);
         }
     }
@@ -137,6 +141,11 @@ public class CollectionController {
         if(list==null)
         {
             return new CommonResponse<String>(400,"添加失败",null,null);
+        }
+
+        if(ServiceForUserToStock.lambdaQuery().eq(usertostock::getSymbol,symbol).list()!=null)
+        {
+            return new CommonResponse<String>(400,"不能重复添加收藏",null,null);
         }
         usertostock userToStock = new usertostock();
         userToStock.setCollectionid(collectionid).setSymbol(symbol);

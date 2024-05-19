@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Moudels" />
         <module name="Security" />
+        <module name="PythonConnection" />
         <module name="user" />
         <module name="gateway" />
         <module name="StockData" />
@@ -21,6 +22,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Moudels" options="-parameters" />
+      <module name="PythonConnection" options="-parameters" />
       <module name="Security" options="-parameters" />
       <module name="StockData" options="-parameters" />
       <module name="gateway" options="-parameters" />

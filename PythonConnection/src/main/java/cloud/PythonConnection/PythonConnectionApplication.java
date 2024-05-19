@@ -1,4 +1,4 @@
-package cloud.StockData;
+package cloud.PythonConnection;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,9 +6,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class StockDataApplication {
+public class PythonConnectionApplication {
     public static void main(String[] args) {
-        SpringApplication.run(StockDataApplication.class, args);
+        SpringApplication.run(PythonConnectionApplication.class, args);
     }
 
 }

@@ -226,6 +226,7 @@ public class InfoController {
         {
             return new CommonResponse<String>(402,"权限不足",null,null);
         }
+
         //去数据库里修改用户表
         if((userService.RootChangeRole(userId,role))!=0)
         {
