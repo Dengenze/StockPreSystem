@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Moudels/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PythonConnection/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PythonConnection/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Security/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/StockData/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />

@@ -12,14 +12,14 @@ import java.time.LocalDateTime;
 @Accessors(chain = true)
 public class StockData {
     private String symbol;
-    private LocalDateTime tradeDate;
-    private Float open;
-    private Float high;
-    private Float low;
-    private Float close;
-    private Float preClose;
-    private Float change;
-    private Float pctChg;
-    private Float vol;
-    private Float amount;
+    private String tradeDate;
+    private String open;
+    private String high;
+    private String low;
+    private String close;
+    private String preClose;
+    private String change;
+    private String pctChg;
+    private String vol;
+    private String amount;
 }

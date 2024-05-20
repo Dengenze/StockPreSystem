@@ -6,19 +6,22 @@ import Dto.StockData;
 import cloud.DengSequrity;
 import cloud.StockData.Service.StockService;
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
+import com.alibaba.fastjson2.TypeReference;
 import lombok.Data;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class StockDataController {
@@ -43,8 +46,33 @@ public class StockDataController {
         {
             return new CommonResponse<List<StockData>>(402,"权限不足",null,null);
         }
-        //返回查询结果
-        return new CommonResponse<>(200,"查询成功" , stockService.getStockBySymbol(symbol),null);
+
+        //从redis中获取数据
+        String dataString = stringRedisTemplate.opsForValue().get(symbol + ".SZ");
+
+        //去除首尾的中括号
+//        dataString = dataString.substring(1,dataString.length()-1);
+        dataString = "\"stockDataList\":" + dataString;
+
+        //首尾加上大括号
+        dataString = "{" + dataString + "}";
+
+        //字符串转为json对象
+        JSONObject jsonObject = JSONObject.parseObject(dataString);
+
+        // jsonObject转为list
+        List<StockData> stockDataList = JSON.parseObject(jsonObject.getString("stockDataList"), new TypeReference<List<StockData>>(){});
+
+
+//        List<StockData> stockDataList = JSON.parseObject(dataString, new TypeReference<List<StockData>>(){});
+
+        //如果数据为空，返回查询失败
+        if(dataString == null)
+        {
+            return new CommonResponse<List<StockData>>(400,"查询失败",null,null);
+        }
+
+        return new CommonResponse<List<StockData>>(200,"查询成功", stockDataList,null);
     }
 
     @GetMapping("StockData/getStockByName")
@@ -132,6 +160,9 @@ public class StockDataController {
         //获取今天
         end_date = new java.text.SimpleDateFormat("yyyyMMdd").format(date);
 
+        //删除redis所有数据
+        stringRedisTemplate.delete(Objects.requireNonNull(stringRedisTemplate.keys("*")));
+
         for(int i = 1; i <= 50; i++){
 
             String ts_code = String.format("%06d.SZ", i);
@@ -150,6 +181,15 @@ public class StockDataController {
             if (tuShareRetBody.data.items.isEmpty()) continue;
 
             dataString = JSON.toJSONString(tuShareRetBody.data.items);
+
+            List<StockData> stockDataList = new ArrayList<>();
+
+            for(int j = 0; j < tuShareRetBody.data.items.size(); j++){
+                List<String> item = tuShareRetBody.data.items.get(j);
+                stockDataList.add(new StockData().setSymbol(item.get(0)).setTradeDate(item.get(1)).setOpen(item.get(2)).setHigh(item.get(3)).setLow(item.get(4)).setClose(item.get(5)).setPreClose(item.get(6)).setChange(item.get(7)).setPctChg(item.get(8)).setVol(item.get(9)).setAmount(item.get(10)));
+            }
+
+            dataString = JSON.toJSONString(stockDataList);
 
             stringRedisTemplate.opsForValue().set(ts_code, dataString);
 
