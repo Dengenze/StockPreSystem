@@ -1,7 +1,10 @@
 package cloud.PythonConnection.Controller;
 
+import CommonResponse.CommonResponse;
+import TuShareUsed.GrossClassForAPI.API_Return;
+import TuShareUsed.GrossClassForAPI.DataAnlysis;
 import TuShareUsed.Pre.*;
-import TuShareUsed.TuShareJson;
+import TuShareUsed.GrossClassForAPI.TuShareJson;
 import cloud.PythonConnection.FeignClient.APIClient;
 import cloud.PythonConnection.FeignClient.PythonClient;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -36,11 +39,11 @@ public class PreController {
         String oneYearAgoDateString = oneYearAgoDate.format(formatter);
 
         //设置传入API的各个参数（需要ts_code）
-        params params = new params();
+        Pre_params params = new Pre_params();
         //构建传递给哦API的param字段,注意这里为了测试方便改了时间
         params.setTs_code(ts_code).setStart_date("20240415").setEnd_date(currentDateString);
         //构建传递给API的json
-        TuShareJson tuShareJson = new TuShareJson();
+        TuShareJson<Pre_params> tuShareJson = new TuShareJson<>();
         tuShareJson.setApi_name("daily").setParams(params).setFields("trade_date,open,high,low,close");
         //将输入类转化为JSON
         String JsonToSend;
@@ -50,7 +53,7 @@ public class PreController {
         System.out.println(JsonToSend);
 
         //向API发送请求，并接住返回的信息
-        GetDailyParams_PreUseReturn getDailyParamsPreUseReturn = objectMapper.readValue(APIClient.sendData(JsonToSend), GetDailyParams_PreUseReturn.class);
+        API_Return getDailyParamsPreUseReturn = objectMapper.readValue(APIClient.sendData(JsonToSend), API_Return.class);
         DataAnlysis dataAnlysis = getDailyParamsPreUseReturn.getData();//取出data内数据
         ArrayList<Object[]> items = dataAnlysis.getItems();//取出data内items信息
         //把items包装进PostToPython里面
@@ -63,8 +66,11 @@ public class PreController {
         //接下来发这个postToPythonJson给python，然后慢慢处理传递回来的参数
 
 
-        return pythonClient.sendData(postToPythonJson);
+
+        return postToPythonJson;
     }
+
+
 
 
 
