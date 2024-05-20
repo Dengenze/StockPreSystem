@@ -12,11 +12,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-public class Stock {
-    private String symbol;
-    private String tscode;
-    private String name;
-    private String area;
-    private String industry;
-    private LocalDate listdate;
+public class news {
+    String tscode;
+    LocalDate ann_date;
+    String name;
+    String title;
+    String url;
+    LocalDateTime rec_time;
 }
