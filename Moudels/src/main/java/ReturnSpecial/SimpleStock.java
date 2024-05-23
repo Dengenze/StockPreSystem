@@ -12,9 +12,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class SimpleStock {
-     String close;
-     String high;
-     String low;
-     String open;
+     Double close;
+     Double high;
+     Double low;
+     Double open;
      LocalDate tradeDate;
 }

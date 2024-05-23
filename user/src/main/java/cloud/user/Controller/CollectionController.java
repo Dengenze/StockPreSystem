@@ -41,7 +41,7 @@ public class CollectionController {
         {
             return new CommonResponse<String>(402,"权限不足",null,null);
         }
-        if((ServiceForCollection.lambdaQuery().eq(Collection::getCollectionname,collectionname).list())!=null)
+        if(!ServiceForCollection.lambdaQuery().eq(Collection::getCollectionname,collectionname).list().isEmpty())
         {
             return new CommonResponse<String>(400,"收藏夹名称重复",null,null);
         }
@@ -131,7 +131,7 @@ public class CollectionController {
                                                        @RequestParam("symbol") String symbol
                                                        )
     {
-        //需要权限
+//        //需要权限
         if(!DengSequrity.DengSequrity(request,"User"))
         {
             return new CommonResponse<String>(402,"权限不足",null,null);
@@ -143,7 +143,7 @@ public class CollectionController {
             return new CommonResponse<String>(400,"添加失败",null,null);
         }
 
-        if(ServiceForUserToStock.lambdaQuery().eq(usertostock::getSymbol,symbol).list()!=null)
+        if(!ServiceForUserToStock.lambdaQuery().eq(usertostock::getSymbol,symbol).list().isEmpty())
         {
             return new CommonResponse<String>(400,"不能重复添加收藏",null,null);
         }

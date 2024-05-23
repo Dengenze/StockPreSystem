@@ -1,8 +1,7 @@
 package cloud.StockData.Mapper;
 
-import Dto.Account;
 import Dto.Stock;
-import Dto.StockData;
+import Dto.StockDataPerDay;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.*;
 
@@ -14,7 +13,7 @@ public interface StockDataMapper extends BaseMapper<Stock> {
 
     //查找某一股票的全部数据
     @Select("SELECT * FROM stockdata WHERE symbol = #{symbol}")
-    public List<StockData> getStockBySymbol(String symbol);
+    public List<StockDataPerDay> getStockBySymbol(String symbol);
 
     //删除所有股票信息
     @Delete("delete from stock")

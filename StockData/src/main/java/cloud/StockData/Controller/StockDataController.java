@@ -3,6 +3,7 @@ package cloud.StockData.Controller;
 import CommonResponse.CommonResponse;
 import Dto.Stock;
 import Dto.StockData;
+import Dto.StockDataPerDay;
 import cloud.DengSequrity;
 import cloud.StockData.Service.StockService;
 import com.alibaba.fastjson2.JSON;
@@ -36,15 +37,16 @@ public class StockDataController {
 
 
     @GetMapping("StockData/getStockDataBySymbol")
-    public CommonResponse<List<StockData>> getStockDataBySymbol(HttpServletRequest request,
-                                                                @RequestParam("symbol")String symbol
+    //这个接口同名了
+    public CommonResponse<List<StockDataPerDay>> getStockDataBySymbol(HttpServletRequest request,
+                                                                      @RequestParam("symbol")String symbol
 
     )
     {
         //需要权限
         if(!DengSequrity.DengSequrity(request,"User"))
         {
-            return new CommonResponse<List<StockData>>(402,"权限不足",null,null);
+            return new CommonResponse<List<StockDataPerDay>>(402,"权限不足",null,null);
         }
 
         //从redis中获取数据
@@ -57,11 +59,13 @@ public class StockDataController {
         //首尾加上大括号
         dataString = "{" + dataString + "}";
 
+//        System.out.println("111" + dataString);
+
         //字符串转为json对象
         JSONObject jsonObject = JSONObject.parseObject(dataString);
 
         // jsonObject转为list
-        List<StockData> stockDataList = JSON.parseObject(jsonObject.getString("stockDataList"), new TypeReference<List<StockData>>(){});
+        List<StockDataPerDay> stockDataList = JSON.parseObject(jsonObject.getString("stockDataList"), new TypeReference<List<StockData>>(){});
 
 
 //        List<StockData> stockDataList = JSON.parseObject(dataString, new TypeReference<List<StockData>>(){});
@@ -69,10 +73,10 @@ public class StockDataController {
         //如果数据为空，返回查询失败
         if(dataString == null)
         {
-            return new CommonResponse<List<StockData>>(400,"查询失败",null,null);
+            return new CommonResponse<List<StockDataPerDay>>(400,"查询失败",null,null);
         }
 
-        return new CommonResponse<List<StockData>>(200,"查询成功", stockDataList,null);
+        return new CommonResponse<List<StockDataPerDay>>(200,"查询成功", stockDataList,null);
     }
 
     @GetMapping("StockData/getStockByName")
@@ -182,11 +186,11 @@ public class StockDataController {
 
             dataString = JSON.toJSONString(tuShareRetBody.data.items);
 
-            List<StockData> stockDataList = new ArrayList<>();
+            List<StockDataPerDay> stockDataList = new ArrayList<>();
 
             for(int j = 0; j < tuShareRetBody.data.items.size(); j++){
                 List<String> item = tuShareRetBody.data.items.get(j);
-                stockDataList.add(new StockData().setSymbol(item.get(0)).setTradeDate(item.get(1)).setOpen(item.get(2)).setHigh(item.get(3)).setLow(item.get(4)).setClose(item.get(5)).setPreClose(item.get(6)).setChange(item.get(7)).setPctChg(item.get(8)).setVol(item.get(9)).setAmount(item.get(10)));
+                stockDataList.add(new StockDataPerDay().setSymbol(item.get(0)).setTradeDate(item.get(1)).setOpen(item.get(2)).setHigh(item.get(3)).setLow(item.get(4)).setClose(item.get(5)).setPreClose(item.get(6)).setChange(item.get(7)).setPctChg(item.get(8)).setVol(item.get(9)).setAmount(item.get(10)));
             }
 
             dataString = JSON.toJSONString(stockDataList);

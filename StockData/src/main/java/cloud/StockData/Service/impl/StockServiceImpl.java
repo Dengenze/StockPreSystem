@@ -1,6 +1,6 @@
 package cloud.StockData.Service.impl;
 
-import Dto.StockData;
+import Dto.StockDataPerDay;
 import cloud.StockData.Mapper.StockDataMapper;
 import cloud.StockData.Service.StockService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -19,7 +19,7 @@ public class StockServiceImpl extends ServiceImpl<StockDataMapper,Stock> impleme
     @Resource
     StockDataMapper stockDataMapper;
 
-    public List<StockData> getStockBySymbol(String symbol)
+    public List<StockDataPerDay> getStockBySymbol(String symbol)
     {
         return stockDataMapper.getStockBySymbol(symbol);
     }

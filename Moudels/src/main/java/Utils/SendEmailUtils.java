@@ -20,7 +20,7 @@ public class SendEmailUtils {
             //不设置发送的消息有可能是乱码
             mail.setCharset("UTF-8");
             //IMAP/SMTP服务的密码 username为你开启发送验证码功能的邮箱号 password为你在qq邮箱获取到的一串字符串
-            mail.setAuthentication("2516632593@qq.com", "skjbsgjqqmwidjgh");
+            mail.setAuthentication("2516632593@qq.com", "kdhyaoqtchijeafa");
             //发送邮件的邮箱和发件人
             mail.setFrom("2516632593@qq.com", "理财大师");
             //使用安全链接
