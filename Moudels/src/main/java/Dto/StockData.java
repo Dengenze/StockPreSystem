@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-public class StockDataPerDay {
+public class StockData {
     private String tscode;
     private LocalDate tradeDate;
     private Double open;

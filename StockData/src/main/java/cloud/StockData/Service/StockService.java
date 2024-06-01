@@ -1,13 +1,13 @@
 package cloud.StockData.Service;
 
 import Dto.Stock;
-import Dto.StockDataPerDay;
+import Dto.StockData;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 
 public interface StockService extends IService<Stock> {
-    List<StockDataPerDay> getStockBySymbol(String symbol);
+    List<StockData> getStockBySymbol(String symbol);
 
     int deleteAllStock();
 
