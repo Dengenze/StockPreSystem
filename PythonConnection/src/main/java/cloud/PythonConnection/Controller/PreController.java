@@ -40,10 +40,10 @@ public class PreController {
         LocalDate halfYearAgoDate = currentDate.minusMonths(6);//一年的数据太卡了，改成半年
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 
-//      String currentDateString = currentDate.format(formatter);
-//      String halfYearAgoDateString = halfYearAgoDate.format(formatter);
-        String currentDateString ="20240517";
-        String halfYearAgoDateString="20231120";
+      String currentDateString = currentDate.format(formatter);
+      String halfYearAgoDateString = halfYearAgoDate.format(formatter);
+//        String currentDateString ="20240517";
+//        String halfYearAgoDateString="20231120";
         //python端存在一定的问题（输入天数似乎不能改变？），先写死
 
         //设置传入API的各个参数（需要ts_code）
@@ -81,9 +81,8 @@ public class PreController {
             simpleStockList.add(simpleStock);//包装好了预测前的全部数据
         }
         //现在LastDate里面存放的就是最后一天的日期了；
-
-
-
+        LastDate.plusDays(1);//下一天即预测开始
+        //注意！这一句代码修改还没有更新到服务器上，记得下次顺便更新了
 
         //把items包装进PostToPython里面
         PostToPython postToPython = new PostToPython();

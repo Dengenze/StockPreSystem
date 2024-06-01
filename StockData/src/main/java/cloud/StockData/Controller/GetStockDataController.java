@@ -82,8 +82,8 @@ public class GetStockDataController {
     @GetMapping("StockData/getTopList")
     public CommonResponse<List<toplist>> getTopList() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();//类与JSON互相转化的工具
-
-        LocalDate currentDate = LocalDate.now();//API接口只能稳定的输出前一天的数据
+        System.out.println("start");
+        LocalDate currentDate = LocalDate.now().minusDays(1);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         String currentDateString = currentDate.format(formatter);
 
