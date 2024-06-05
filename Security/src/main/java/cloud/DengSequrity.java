@@ -27,9 +27,6 @@ public class DengSequrity {
         Integer userRoleLevel = authorityMap.get(userRole);
         Integer requiredRoleLevel = authorityMap.get(requiredRole);
 
-        System.out.println(userRole);
-        System.out.println(requiredRole);
-
         // 检查权限级别是否有效（确保角色存在于Map中）
         if (userRoleLevel != null && requiredRoleLevel != null) {
             // 检查用户权限级别是否足够

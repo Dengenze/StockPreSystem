@@ -13,12 +13,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-public class Alg {
+public class Str {
     @TableId(type= IdType.AUTO)
-    private int algid;
+    private int strid;
     private String account;
-    private String algname;
-    private String alggrade;
+    private String strname;
+    private String strgrade;
     private String ifpass;
-    private LocalDate algdate;
+    private LocalDate strdate;
 }

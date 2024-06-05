@@ -1,14 +1,16 @@
 package cloud.PythonConnection.Controller;
 
 import CommonResponse.CommonResponse;
-import Dto.news;
+import Dto.Alg;
 import ReturnSpecial.SimpleStock;
 import TuShareUsed.GrossClassForAPI.API_Return;
 import TuShareUsed.GrossClassForAPI.DataAnlysis;
 import TuShareUsed.Pre.*;
 import TuShareUsed.GrossClassForAPI.TuShareJson;
+import cloud.JwtTokenUtil;
 import cloud.PythonConnection.FeignClient.APIClient;
 import cloud.PythonConnection.FeignClient.PythonClient;
+import cloud.PythonConnection.Service.ServiceForAlg;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,19 +19,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 @RestController
 public class PreController {
+    private static final List<String> VALID_ALG_VALUES = Arrays.asList("DSFormer", "itransformer", "patchTST");
     @Resource
     APIClient APIClient;
 
     @Resource
     PythonClient pythonClient;
+
+    @Resource
+    ServiceForAlg serviceForAlg;
 
     @PostMapping("PythonConnection/startPre")
     public CommonResponse<List<SimpleStock>> sendDataToPython(HttpServletRequest request,
@@ -40,11 +53,8 @@ public class PreController {
         LocalDate halfYearAgoDate = currentDate.minusMonths(6);//一年的数据太卡了，改成半年
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 
-      String currentDateString = currentDate.format(formatter);
-      String halfYearAgoDateString = halfYearAgoDate.format(formatter);
-//        String currentDateString ="20240517";
-//        String halfYearAgoDateString="20231120";
-        //python端存在一定的问题（输入天数似乎不能改变？），先写死
+        String currentDateString = currentDate.format(formatter);
+        String halfYearAgoDateString = halfYearAgoDate.format(formatter);
 
         //设置传入API的各个参数（需要ts_code）
         Pre_params params = new Pre_params();
@@ -74,18 +84,20 @@ public class PreController {
             LocalDate TradeDate = LocalDate.parse((String) item[0], formatter);
             simpleStock.setTradeDate(TradeDate);
             simpleStock.setOpen((Double) item[1]);
-            simpleStock.setHigh((Double) item[1]);
+            simpleStock.setHigh((Double) item[2]);
             simpleStock.setLow((Double) item[3]);
             simpleStock.setClose((Double) item[4]);
             LastDate=TradeDate;//处理真正的最后一天(排除休市的干扰)
             simpleStockList.add(simpleStock);//包装好了预测前的全部数据
         }
         //现在LastDate里面存放的就是最后一天的日期了；
-        LastDate.plusDays(1);//下一天即预测开始
+        LastDate=LastDate.plusDays(1);//下一天即预测开始
         //注意！这一句代码修改还没有更新到服务器上，记得下次顺便更新了
 
         //把items包装进PostToPython里面
         PostToPython postToPython = new PostToPython();
+        alg = changetoURL(alg);
+
         postToPython.setUrl(alg).setData(items);//注意，这里"url"实际上是算法名字（统一目录下）
         //PostToPython转化为json
         String postToPythonJson = objectMapper.writeValueAsString(postToPython);
@@ -112,8 +124,89 @@ public class PreController {
     }
 
 
+    @PostMapping("PythonConnection/UploadAlg")
+    public CommonResponse<String> UploadAlg(HttpServletRequest request,
+                                            @RequestParam("algname")String algname,
+                                            @RequestParam("alggrade")String alggrade)
+    {
+        //写Alg表部分
+        // 从请求头获取token
+        String token = request.getHeader("Authorization");
+        // 通过JwtTokenUtil工具类获取当前用户的账号
+        String account = JwtTokenUtil.getUsername(token);
+
+        if(!serviceForAlg.lambdaQuery().eq(Alg::getAlgname,algname).list().isEmpty())
+        {
+            return new CommonResponse<String>(400,"算法名重复",null,null);
+        }
+
+        // 获取当前日期和一年以前的日期
+        LocalDate currentDate = LocalDate.now();
+
+        Alg alg = new Alg();
+        alg.setAccount(account).setAlggrade(alggrade).setIfpass("No").setAlgdate(currentDate).setAlgname(algname);
+        boolean b = serviceForAlg.saveOrUpdate(alg);
+        if (b)
+        {
+            return new CommonResponse<String>(200,"提交成功",null,null);
+        }
+        else
+        {
+            return new CommonResponse<String>(400,"提交失败",null,null);
+        }
+    }
 
 
+    private void unzip(File zipFile, String destDir) throws IOException {
+        byte[] buffer = new byte[1024];
+        ZipInputStream zis = new ZipInputStream(Files.newInputStream(zipFile.toPath()));
+        ZipEntry zipEntry = zis.getNextEntry();
+        while (zipEntry != null) {
+            File newFile = newFile(new File(destDir), zipEntry);
+            if (zipEntry.isDirectory()) {
+                if (!newFile.isDirectory() && !newFile.mkdirs()) {
+                    throw new IOException("Failed to create directory " + newFile);
+                }
+            } else {
+                // fix for Windows-created archives
+                File parent = newFile.getParentFile();
+                if (!parent.isDirectory() && !parent.mkdirs()) {
+                    throw new IOException("Failed to create directory " + parent);
+                }
+
+                // write file content
+                try (FileOutputStream fos = new FileOutputStream(newFile)) {
+                    int len;
+                    while ((len = zis.read(buffer)) > 0) {
+                        fos.write(buffer, 0, len);
+                    }
+                }
+            }
+            zipEntry = zis.getNextEntry();
+        }
+        zis.closeEntry();
+        zis.close();
+    }
+
+    private File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
+        File destFile = new File(destinationDir, zipEntry.getName());
+
+        String destDirPath = destinationDir.getCanonicalPath();
+        String destFilePath = destFile.getCanonicalPath();
+
+        if (!destFilePath.startsWith(destDirPath + File.separator)) {
+            throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
+        }
+
+        return destFile;
+    }
 
 
+    public static String changetoURL(String alg) {
+        if (!VALID_ALG_VALUES.contains(alg)) {
+            Random random = new Random();
+            alg = VALID_ALG_VALUES.get(random.nextInt(VALID_ALG_VALUES.size()));
+        }
+        return alg;
+    }
 }

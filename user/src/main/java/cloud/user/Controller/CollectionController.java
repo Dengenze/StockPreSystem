@@ -1,10 +1,13 @@
 package cloud.user.Controller;
 
 import CommonResponse.CommonResponse;
+import Dto.Account;
 import Dto.Collection;
 import Dto.Stock;
 import Dto.usertostock;
 import cloud.DengSequrity;
+import cloud.JwtTokenUtil;
+import cloud.user.Service.MP.UserServiceForAccount;
 import cloud.user.Service.MP.UserServiceForCollection;
 import cloud.user.Service.MP.UserServiceForUserToStock;
 
@@ -27,6 +30,9 @@ public class CollectionController {
     @Resource
     UserService userService;
 
+    @Resource
+    UserServiceForAccount userServiceForAccount;
+
     //所有的UserToStock逻辑上应该是CollectionToStock，但是数据库实在不想改了
 
     //用户添加收藏夹
@@ -41,7 +47,7 @@ public class CollectionController {
         {
             return new CommonResponse<String>(402,"权限不足",null,null);
         }
-        if(!ServiceForCollection.lambdaQuery().eq(Collection::getCollectionname,collectionname).list().isEmpty())
+        if(!ServiceForCollection.lambdaQuery().eq(Collection::getUserid,userid).eq(Collection::getCollectionname,collectionname).list().isEmpty())
         {
             return new CommonResponse<String>(400,"收藏夹名称重复",null,null);
         }
@@ -90,6 +96,16 @@ public class CollectionController {
         if(!DengSequrity.DengSequrity(request,"User"))
         {
             return new CommonResponse<String>(402,"权限不足",null,null);
+        }
+        // 从请求头获取token
+        String token = request.getHeader("Authorization");
+        // 通过JwtTokenUtil工具类获取当前用户的账号
+        String account = JwtTokenUtil.getUsername(token);
+        Integer userid = userServiceForAccount.lambdaQuery().eq(Account::getAccount, account).one().getUserid();
+
+        if(!ServiceForCollection.lambdaQuery().eq(Collection::getUserid,userid).eq(Collection::getCollectionname,collectionname).list().isEmpty())
+        {
+            return new CommonResponse<String>(400,"收藏夹名称重复",null,null);
         }
 
         boolean ifupdate = ServiceForCollection.lambdaUpdate().eq(Collection::getCollectionid, collectionid).set(Collection::getCollectionname, collectionname).update();
@@ -143,7 +159,7 @@ public class CollectionController {
             return new CommonResponse<String>(400,"添加失败",null,null);
         }
 
-        if(!ServiceForUserToStock.lambdaQuery().eq(usertostock::getSymbol,symbol).list().isEmpty())
+        if(!ServiceForUserToStock.lambdaQuery().eq(usertostock::getCollectionid,collectionid).eq(usertostock::getSymbol,symbol).list().isEmpty())
         {
             return new CommonResponse<String>(400,"不能重复添加收藏",null,null);
         }
