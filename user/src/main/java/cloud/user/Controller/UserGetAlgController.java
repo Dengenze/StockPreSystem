@@ -38,11 +38,11 @@ public class UserGetAlgController {
 
         if(algname==null)
         {
-            List<Alg> yes = userServiceForAlg.lambdaQuery().eq(Alg::getAlggrade,userRole).eq(Alg::getIfpass, "YES").list();
+            List<Alg> yes = userServiceForAlg.lambdaQuery().eq(Alg::getIfpass, "YES").list();
             return new CommonResponse<>(200,"",yes,null);
         }
 
-        List<Alg> yes = userServiceForAlg.lambdaQuery().eq(Alg::getAlggrade,userRole).eq(Alg::getIfpass, "YES").like(Alg::getAlgname,algname).list();
+        List<Alg> yes = userServiceForAlg.lambdaQuery().eq(Alg::getIfpass, "YES").like(Alg::getAlgname,algname).list();
         return new CommonResponse<>(200,"",yes,null);
     }
 
@@ -75,11 +75,11 @@ public class UserGetAlgController {
 
         if(strname ==null)
         {
-            List<Str> yes = userServiceForStr.lambdaQuery().eq(Str::getStrgrade,userRole).eq(Str::getIfpass, "YES").list();
+            List<Str> yes = userServiceForStr.lambdaQuery().eq(Str::getIfpass, "YES").list();
             return new CommonResponse<>(200,"",yes,null);
         }
 
-        List<Str> yes = userServiceForStr.lambdaQuery().eq(Str::getStrgrade,userRole).eq(Str::getIfpass, "YES").like(Str::getStrname, strname).list();
+        List<Str> yes = userServiceForStr.lambdaQuery().eq(Str::getIfpass, "YES").like(Str::getStrname, strname).list();
         return new CommonResponse<>(200,"",yes,null);
     }
 
@@ -146,5 +146,39 @@ public class UserGetAlgController {
 
     }
 
+    @PostMapping("user/RootDeleteStr")
+    public CommonResponse<String> RootDeleteStr(HttpServletRequest request,
+                                               @RequestParam("strid")Integer strid
+                                               )
+    {
+        boolean b = userServiceForStr.lambdaUpdate().eq(Str::getStrid, strid).remove();
+
+        if(b)
+        {
+            return new CommonResponse<>(200,"删除成功","",null);
+        }
+        else
+        {
+            return new CommonResponse<>(400,"删除失败","",null);
+        }
+    }
+
+
+    @PostMapping("user/RootDeleteAlg")
+    public CommonResponse<String> RootDeleteAlg(HttpServletRequest request,
+                                                @RequestParam("algid")Integer algid
+    )
+    {
+        boolean b = userServiceForAlg.lambdaUpdate().eq(Alg::getAlgid, algid).remove();
+
+        if(b)
+        {
+            return new CommonResponse<>(200,"删除成功","",null);
+        }
+        else
+        {
+            return new CommonResponse<>(400,"删除失败","",null);
+        }
+    }
 
 }

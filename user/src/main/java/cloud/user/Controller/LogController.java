@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -196,4 +197,15 @@ public class LogController {
         return new CommonResponse<UserRespVo>(200,"登录成功",userRespVo,token);
     }
 
+    @GetMapping("/user/log/getUserRole")
+    public CommonResponse<String> sendCaptcha(HttpServletRequest request)
+    {
+        // 从请求头获取token
+        String token = request.getHeader("Authorization");
+
+        // 通过JwtTokenUtil工具类获取当前用户的权限
+        String userRole = cloud.JwtTokenUtil.getUserRole(token);
+
+        return new CommonResponse<String>(200,"",userRole,token);
+    }
 }
