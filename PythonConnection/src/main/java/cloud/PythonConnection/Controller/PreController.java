@@ -14,8 +14,10 @@ import cloud.PythonConnection.Service.ServiceForAlg;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -127,7 +129,9 @@ public class PreController {
     @PostMapping("PythonConnection/UploadAlg")
     public CommonResponse<String> UploadAlg(HttpServletRequest request,
                                             @RequestParam("algname")String algname,
-                                            @RequestParam("alggrade")String alggrade)
+                                            @RequestParam("alggrade")String alggrade,
+                                            @RequestParam("introduction")String introduction
+    )
     {
         //写Alg表部分
         // 从请求头获取token
@@ -144,7 +148,8 @@ public class PreController {
         LocalDate currentDate = LocalDate.now();
 
         Alg alg = new Alg();
-        alg.setAccount(account).setAlggrade(alggrade).setIfpass("No").setAlgdate(currentDate).setAlgname(algname);
+        alg.setAccount(account).setAlggrade(alggrade).setIfpass("NO").setAlgdate(currentDate).setAlgname(algname)
+                .setIntroduction(introduction);
         boolean b = serviceForAlg.saveOrUpdate(alg);
         if (b)
         {
@@ -155,6 +160,7 @@ public class PreController {
             return new CommonResponse<String>(400,"提交失败",null,null);
         }
     }
+
 
 
     private void unzip(File zipFile, String destDir) throws IOException {

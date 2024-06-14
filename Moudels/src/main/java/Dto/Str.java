@@ -21,4 +21,5 @@ public class Str {
     private String strgrade;
     private String ifpass;
     private LocalDate strdate;
+    String introduction;
 }

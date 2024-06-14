@@ -120,7 +120,9 @@ public class StrController {
     @PostMapping("PythonConnection/UploadStr")
     public CommonResponse<String> UploadAlg(HttpServletRequest request,
                                             @RequestParam("strname")String strname,
-                                            @RequestParam("strgrade")String strgrade)
+                                            @RequestParam("strgrade")String strgrade,
+                                            @RequestParam("introduction")String introduction
+    )
     {
         //写Str表部分
         // 从请求头获取token
@@ -137,7 +139,8 @@ public class StrController {
         LocalDate currentDate = LocalDate.now();
 
         Str str = new Str();
-        str.setAccount(account).setStrgrade(strgrade).setIfpass("No").setStrdate(currentDate).setStrname(strname);
+        str.setAccount(account).setStrgrade(strgrade).setIfpass("NO").setStrdate(currentDate).setStrname(strname)
+                .setIntroduction(introduction);
         boolean b = serviceForStr.saveOrUpdate(str);
         if (b)
         {

@@ -147,7 +147,7 @@ public class CollectionController {
                                                        @RequestParam("symbol") String symbol
                                                        )
     {
-//        //需要权限
+        //需要权限
         if(!DengSequrity.DengSequrity(request,"User"))
         {
             return new CommonResponse<String>(402,"权限不足",null,null);

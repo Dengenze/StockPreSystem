@@ -21,4 +21,6 @@ public class Alg {
     private String alggrade;
     private String ifpass;
     private LocalDate algdate;
+
+    String introduction;
 }

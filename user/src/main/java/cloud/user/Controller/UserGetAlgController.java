@@ -33,17 +33,29 @@ public class UserGetAlgController {
         String userRole = JwtTokenUtil.getUserRole(token);
 
         if ("Root".equals(userRole) || "Vip".equals(userRole) || "AlgE".equals(userRole) || "StrE".equals(userRole)) {
-            userRole = "Vip";
+            if(algname==null)
+            {
+                List<Alg> yes = userServiceForAlg.lambdaQuery().eq(Alg::getIfpass, "YES").list();
+                return new CommonResponse<>(200,"",yes,null);
+            }
+            else
+            {
+                List<Alg> yes = userServiceForAlg.lambdaQuery().eq(Alg::getIfpass, "YES").like(Alg::getAlgname,algname).list();
+                return new CommonResponse<>(200,"",yes,null);
+            }
         }
-
-        if(algname==null)
-        {
-            List<Alg> yes = userServiceForAlg.lambdaQuery().eq(Alg::getIfpass, "YES").list();
-            return new CommonResponse<>(200,"",yes,null);
+        else {
+            if(algname==null)
+            {
+                List<Alg> yes = userServiceForAlg.lambdaQuery().eq(Alg::getAlggrade,"User").eq(Alg::getIfpass, "YES").list();
+                return new CommonResponse<>(200,"",yes,null);
+            }
+            else
+            {
+                List<Alg> yes = userServiceForAlg.lambdaQuery().eq(Alg::getAlggrade,"User").eq(Alg::getIfpass, "YES").like(Alg::getAlgname,algname).list();
+                return new CommonResponse<>(200,"",yes,null);
+            }
         }
-
-        List<Alg> yes = userServiceForAlg.lambdaQuery().eq(Alg::getIfpass, "YES").like(Alg::getAlgname,algname).list();
-        return new CommonResponse<>(200,"",yes,null);
     }
 
     @PostMapping("/user/RootGetAlg")
@@ -59,6 +71,7 @@ public class UserGetAlgController {
         List<Alg> yes = userServiceForAlg.lambdaQuery().like(Alg::getAlgname,algname).list();
         return new CommonResponse<>(200,"",yes,null);
     }
+
     @PostMapping("user/getStr")
     public CommonResponse<List<Str>> usergetStr(HttpServletRequest request,
                                                 @RequestParam("strname")String strname)
@@ -70,17 +83,29 @@ public class UserGetAlgController {
         String userRole = JwtTokenUtil.getUserRole(token);
 
         if ("Root".equals(userRole) || "Vip".equals(userRole) || "AlgE".equals(userRole) || "StrE".equals(userRole)) {
-            userRole = "Vip";
+            if(strname ==null)
+            {
+                List<Str> yes = userServiceForStr.lambdaQuery().eq(Str::getIfpass, "YES").list();
+                return new CommonResponse<>(200,"",yes,null);
+            }
+            else
+            {
+                List<Str> yes = userServiceForStr.lambdaQuery().eq(Str::getIfpass, "YES").like(Str::getStrname, strname).list();
+                return new CommonResponse<>(200,"",yes,null);
+            }
         }
-
-        if(strname ==null)
-        {
-            List<Str> yes = userServiceForStr.lambdaQuery().eq(Str::getIfpass, "YES").list();
-            return new CommonResponse<>(200,"",yes,null);
+        else {
+            if(strname ==null)
+            {
+                List<Str> yes = userServiceForStr.lambdaQuery().eq(Str::getStrgrade,"User").eq(Str::getIfpass, "YES").list();
+                return new CommonResponse<>(200,"",yes,null);
+            }
+            else
+            {
+                List<Str> yes = userServiceForStr.lambdaQuery().eq(Str::getStrgrade,"User").eq(Str::getIfpass, "YES").like(Str::getStrname, strname).list();
+                return new CommonResponse<>(200,"",yes,null);
+            }
         }
-
-        List<Str> yes = userServiceForStr.lambdaQuery().eq(Str::getIfpass, "YES").like(Str::getStrname, strname).list();
-        return new CommonResponse<>(200,"",yes,null);
     }
 
     @PostMapping("/user/RootGetStr")
@@ -102,18 +127,22 @@ public class UserGetAlgController {
                                                   @RequestParam("algid")Integer algid,
                                                 @RequestParam("ifpass")String ifpass,
                                                 @RequestParam("algname")String algname,
-                                                  @RequestParam("alggrade")String alggrade)
+                                                  @RequestParam("alggrade")String alggrade,
+                                                @RequestParam("introduction")String introduction
+    )
     {
         if(!userServiceForAlg.lambdaQuery().ne(Alg::getAlgid,algid).eq(Alg::getAlgname,algname).list().isEmpty())
         {
-            return new CommonResponse<String>(400,"策略名称重复",null,null);
+            return new CommonResponse<String>(400,"算法名称重复",null,null);
         }
 
-        boolean update = userServiceForAlg.lambdaUpdate().eq(Alg::getAlgid, algid).set(Alg::getIfpass, ifpass).set(Alg::getAlgname, algname).set(Alg::getAlggrade, alggrade).update();
+        boolean update = userServiceForAlg.lambdaUpdate().eq(Alg::getAlgid, algid).set(Alg::getIfpass, ifpass).set(Alg::getAlgname, algname).set(Alg::getAlggrade, alggrade)
+                .set(Alg::getIntroduction,introduction)
+                .update();
 
         if(update)
         {
-            return new CommonResponse<>(200,"","",null);
+            return new CommonResponse<>(200,"修改成功","",null);
         }
         else
         {
@@ -126,18 +155,22 @@ public class UserGetAlgController {
                                                @RequestParam("strid")Integer strid,
                                                @RequestParam("ifpass")String ifpass,
                                                @RequestParam("strname")String strname,
-                                               @RequestParam("strgrade")String strgrade)
+                                               @RequestParam("strgrade")String strgrade,
+                                                @RequestParam("introduction")String introduction
+    )
     {
         if(!userServiceForStr.lambdaQuery().ne(Str::getStrid,strid).eq(Str::getStrname,strname).list().isEmpty())
         {
             return new CommonResponse<String>(400,"策略名称重复",null,null);
         }
 
-        boolean update = userServiceForStr.lambdaUpdate().eq(Str::getStrid, strid).set(Str::getIfpass, ifpass).set(Str::getStrname, strname).set(Str::getStrgrade, strgrade).update();
+        boolean update = userServiceForStr.lambdaUpdate().eq(Str::getStrid, strid).set(Str::getIfpass, ifpass).set(Str::getStrname, strname).set(Str::getStrgrade, strgrade)
+                .set(Str::getIntroduction,introduction)
+                .update();
 
         if(update)
         {
-            return new CommonResponse<>(200,"","",null);
+            return new CommonResponse<>(200,"修改成功","",null);
         }
         else
         {
