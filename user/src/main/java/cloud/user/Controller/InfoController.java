@@ -238,4 +238,42 @@ public class InfoController {
             return new CommonResponse<String>(400,"修改失败",null,null);
         }
     }
+
+    /**
+     * 删除用户
+     * @param userId 用户id
+     * @return 相应的提示信息
+     *      如果删除成功，则返回删除成功（200）
+     *      如果权限不足，则返回权限不足（402）
+     *      如果删除失败，则返回删除失败（400）
+     */
+    @PostMapping("user/deleteUser")
+    public CommonResponse<String> deleteUser(HttpServletRequest request,
+                                             @RequestParam("userId")Integer userId) {
+
+        //需要权限
+        if(!DengSequrity.DengSequrity(request,"User"))
+        {
+            return new CommonResponse<String>(402,"权限不足",null,null);
+        }
+
+        //如果用户不存在
+        if(userService.selectUserAndAccountById(userId)==null)
+        {
+            return new CommonResponse<String>(400,"用户不存在",null,null);
+        }
+
+        //删除用户
+        boolean result = userService.deleteUserAndAccountById(userId);
+
+        //如果删除成功，返回删除成功
+        if(result)
+        {
+            return new CommonResponse<String>(200,"删除成功",null,null);
+        }
+
+        //返回删除失败
+        return new CommonResponse<String>(400,"删除失败",null,null);
+
+    }
 }

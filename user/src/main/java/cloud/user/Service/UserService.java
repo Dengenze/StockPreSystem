@@ -49,6 +49,9 @@ public class UserService {
     public UserRespVo selectUserAndAccountById(Integer id) {
         User user = selectUserById(id);
         Account account = selectAccountById(id);
+        if(user == null || account == null) {
+            return null;
+        }
         UserRespVo userRespVo = new UserRespVo();
         BeanUtils.copyProperties(user, userRespVo);
         BeanUtils.copyProperties(account, userRespVo);
@@ -138,6 +141,31 @@ public class UserService {
     //删除账户
     public int deleteAccountById(Integer id) {
         return userMapper.deleteAccountById(id);
+    }
+
+    //删除用户收藏
+    public void deleteCollectionById(Integer id) {
+        userMapper.deleteCollectionById(id);
+    }
+
+    //删除用户收藏夹
+    public void deleteCollectionsById(Integer id) {
+        userMapper.deleteCollectionsById(id);
+    }
+
+    //删除账户角色
+    public void deleteRoleById(Integer id) {
+        userMapper.deleteRoleToAccountById(id);
+    }
+
+    //删除用户和账户
+    public boolean deleteUserAndAccountById(Integer id) {
+        int deleteUser = deleteUserById(id);
+        int deleteAccount = deleteAccountById(id);
+        deleteCollectionById(id);//删除用户收藏(不管有没有收藏都删除)
+        deleteCollectionsById(id);//删除用户收藏夹(不管有没有收藏夹都删除)
+        deleteRoleById(id);//删除账户角色
+        return deleteUser + deleteAccount == 2;
     }
 
     //修改密码

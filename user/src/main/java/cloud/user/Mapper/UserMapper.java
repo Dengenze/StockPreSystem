@@ -60,6 +60,18 @@ public interface UserMapper {
     @Delete("delete from account where userid = #{id}")
     public int deleteAccountById(Integer id);
 
+    //删除用户收藏
+    @Delete("delete from usertostock where collectionid = (select collectionid from collection where userid = #{id})")
+    public void deleteCollectionById(Integer id);
+
+    //删除用户收藏夹
+    @Delete("delete from collection where userid = #{id}")
+    public void deleteCollectionsById(Integer id);
+
+    //删除账户角色
+    @Delete("delete from roletoaccount where userid = #{id}")
+    public void deleteRoleToAccountById(Integer id);
+
     //修改密码
     @Update("update account set password = #{newPassword} where userid = #{id} and password = #{oldPassword}")
     public int updatePassword(@Param("id")Integer id, @Param("oldPassword")String oldPassword, @Param("newPassword")String newPassword);
