@@ -1,6 +1,7 @@
 package cloud.PythonConnection.Controller;
 
 import CommonResponse.CommonResponse;
+import ReturnSpecial.MarketInfo;
 import ReturnSpecial.SimpleStock;
 import TuShareUsed.GrossClassForAPI.API_Return;
 import TuShareUsed.GrossClassForAPI.DataAnlysis;
@@ -32,7 +33,7 @@ public class MarketIndex {
     ServiceForAlg serviceForAlg;
 
     @PostMapping("PythonConnection/GetMarketIndex")
-    public CommonResponse<List<SimpleStock>> GetMarketIndex(@RequestParam("id")String id) throws JsonProcessingException {
+    public CommonResponse<MarketInfo> GetMarketIndex(@RequestParam("id")String id) throws JsonProcessingException {
         String ts_code;
         if(id.equals("1"))
         {
@@ -52,7 +53,7 @@ public class MarketIndex {
         }
         else
         {
-            return new CommonResponse<List<SimpleStock>>(400,"错误",null,"");
+            return new CommonResponse<MarketInfo>(400,"错误",null,"");
         }
 
         // 获取当前日期和一年以前的日期
@@ -65,11 +66,11 @@ public class MarketIndex {
 
         //设置传入API的各个参数（需要ts_code）
         Pre_params params = new Pre_params();
-        //构建传递给哦API的param字段
+        //构建传递给API的param字段
         params.setTs_code(ts_code).setStart_date(halfYearAgoDateString).setEnd_date(currentDateString);
         //构建传递给API的json
         TuShareJson<Pre_params> tuShareJson = new TuShareJson<>();
-        tuShareJson.setApi_name("daily").setParams(params).setFields("trade_date,open,high,low,close");
+        tuShareJson.setApi_name("daily").setParams(params).setFields("trade_date,open,high,low,close,vol,amount");
         //将输入类转化为JSON
         String JsonToSend;
         ObjectMapper objectMapper = new ObjectMapper();
@@ -82,7 +83,11 @@ public class MarketIndex {
         DataAnlysis dataAnlysis = getDailyParamsPreUseReturn.getData();//取出data内数据
         ArrayList<Object[]> items = dataAnlysis.getItems();//取出data内items信息
         //先构建返回类的前半部分
+        MarketInfo marketInfo = new MarketInfo();
         List<SimpleStock> simpleStockList = new ArrayList<>();//返回类
+
+        double avgVolume = 0, avgAmount = 0;
+        int count = 0;
 
         for (int i = items.size() - 1; i >= 0; i--) {//倒叙访问
             Object[] item = items.get(i);
@@ -95,8 +100,74 @@ public class MarketIndex {
             simpleStock.setClose((Double) item[4]);
             //处理真正的最后一天(排除休市的干扰)
             simpleStockList.add(simpleStock);//包装好了预测前的全部数据
+            avgVolume+=(Double) item[5];
+            avgAmount+=(Double) item[6];
+            count++;
         }
         //现在LastDate里面存放的就是最后一天的日期了；
-        return new CommonResponse<>(200,"",simpleStockList,null);
+        avgVolume /= count;
+        avgAmount /= count;
+
+        marketInfo.setVolume(avgVolume).setAmount(avgAmount).setSimpleStocks(simpleStockList);
+
+        //设置传入API的各个参数（需要ts_code）
+        Pre_params params1 = new Pre_params();
+        //构建传递给API的param字段
+        params1.setTs_code(ts_code);
+        //构建传递给API的json
+        TuShareJson<Pre_params> tuShareJson1 = new TuShareJson<>();
+        tuShareJson1.setApi_name("stock_basic").setParams(params).setFields("ts_code,symbol,name");
+        //将输入类转化为JSON
+        String JsonToSend1;
+        ObjectMapper objectMapper1 = new ObjectMapper();
+        JsonToSend1= objectMapper1.writeValueAsString(tuShareJson1);
+
+        System.out.println(JsonToSend1);
+
+        //向API发送请求，并接住返回的信息
+        API_Return getDailyParamsPreUseReturn1 = objectMapper1.readValue(APIClient.sendData(JsonToSend1), API_Return.class);
+        DataAnlysis dataAnlysis1 = getDailyParamsPreUseReturn1.getData();//取出data内数据
+        ArrayList<Object[]> items1 = dataAnlysis1.getItems();//取出data内items信息
+
+        marketInfo.setTsCode((String) items1.get(0)[0]).setSymbol((String) items1.get(0)[1]).setName((String) items1.get(0)[2]);
+
+        //设置传入API的各个参数（需要ts_code）
+        Pre_params params2 = new Pre_params();
+        //构建传递给API的param字段
+        params2.setTs_code(ts_code).setStart_date(halfYearAgoDateString).setEnd_date(currentDateString);
+        //构建传递给API的json
+        TuShareJson<Pre_params> tuShareJson2 = new TuShareJson<>();
+        tuShareJson2.setApi_name("daily_basic").setParams(params).setFields("turnover_rate,pe,total_mv,total_share");
+        //将输入类转化为JSON
+        String JsonToSend2;
+        ObjectMapper objectMapper2 = new ObjectMapper();
+        JsonToSend2= objectMapper2.writeValueAsString(tuShareJson2);
+
+        System.out.println(JsonToSend2);
+
+        //向API发送请求，并接住返回的信息
+        API_Return getDailyParamsPreUseReturn2 = objectMapper2.readValue(APIClient.sendData(JsonToSend2), API_Return.class);
+        DataAnlysis dataAnlysis2 = getDailyParamsPreUseReturn2.getData();//取出data内数据
+        ArrayList<Object[]> items2 = dataAnlysis2.getItems();//取出data内items信息
+
+        Double avgTurnoverRate = 0.0, avgPe = 0.0, avgTotalValue = 0.0, avgTotalShares = 0.0;
+        int count2 = 0;
+
+        for (int i = items2.size() - 1; i >= 0; i--) {//倒叙访问
+            Object[] item = items2.get(i);
+            if(item[0] != null) avgTurnoverRate += (Double) item[0];
+            if(item[1] != null) avgPe += (Double) item[1];
+            if(item[2] != null) avgTotalValue += (Double) item[2];
+            if(item[3] != null) avgTotalShares += (Double) item[3];
+            count2++;
+        }
+
+        avgTurnoverRate /= count2;
+        avgPe /= count2;
+        avgTotalValue /= count2;
+
+        marketInfo.setTurnoverRate(avgTurnoverRate).setPe(avgPe).setTotalValue(avgTotalValue).setTotalShares(avgTotalShares);
+
+        return new CommonResponse<>(200,"",marketInfo,null);
     }
 }

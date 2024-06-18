@@ -123,6 +123,8 @@ public class UserService {
         user.setUserid(userid);
         //插入用户
         int insertUser = insertUser(user);
+        //设置用户角色
+        userMapper.insertRoleToAccount(userid, 1);
         return insertAccount + insertUser == 2;
     }
 //    public boolean addAccountAndUser(Account account, User user) {

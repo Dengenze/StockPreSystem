@@ -91,4 +91,8 @@ public interface UserMapper {
     //查询收藏夹里全部股票
     @Select("Select * FROM usertostock join stock on usertostock.symbol= stock.symbol WHERE usertostock.collectionid = #{collectionid}")
     List<Stock> selectStockFromCollection(@Param("collectionid") int collectionid);
+
+    //插入用户角色
+    @Insert("insert into roletoaccount(userid, roleid) values(#{userid}, #{roleid})")
+    public int insertRoleToAccount(@Param("userid") Integer userid, @Param("roleid") Integer roleid);
 }
